@@ -1,0 +1,24 @@
+<div *ngIf="artist">
+  <h2>{{ artist.name }}</h2>
+  <p><strong>Styles:</strong> {{ artist.styles }}</p>
+  <p>{{ artist.bio }}</p>
+
+  <a [href]="'https://instagram.com/' + artist.instagramHandle" target="_blank">
+    <span>&#64;</span>{{ artist.instagramHandle }}
+  </a>
+
+  <div style="margin-top: 1rem;">
+    <a [href]="artist.bookingUrl" target="_blank">
+      <button>Book with Me</button>
+    </a>
+  </div>
+
+  <!-- Instagram Embed -->
+  <div style="margin-top: 2rem;">
+    <blockquote 
+      class="instagram-media" 
+      [attr.data-instgrm-permalink]="'https://www.instagram.com/' + artist.instagramHandle + '/?utm_source=ig_embed'"
+      data-instgrm-version="14">
+    </blockquote>
+  </div>
+</div>

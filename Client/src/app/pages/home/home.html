@@ -1,0 +1,37 @@
+<section class="hero">
+  <h1>Welcome to La Plaza Tattoo & Art Gallery</h1>
+  <p>Westside KC's home for black & grey realism, Chicano artistry, and local fine art. Discover why clients choose La Plaza for bold, timeless work.</p>
+
+  <div class="actions">
+    <a routerLink="/consultation"><button>Book a Free Consultation</button></a>
+    <a routerLink="/artists"><button>Meet Our Artists</button></a>
+  </div>
+</section>
+
+<section class="featured-artists">
+  <h2>Featured Artists</h2>
+  <p>Our artists specialize in black & grey, realism, neo-traditional, and fine line styles.</p>
+  <div *ngFor="let artist of featuredArtists" class="card">
+    <h3>{{ artist.name }}</h3>
+    <p>{{ artist.styles }}</p>
+    <a [routerLink]="['/artists', artist.id]">View Portfolio</a>
+  </div>
+</section>
+
+<section class="deals">
+  <h2>Current Specials</h2>
+  <div *ngFor="let deal of deals" class="card">
+    <h4>{{ deal.title }}</h4>
+    <p>{{ deal.description }}</p>
+    <small>Expires {{ deal.expiresAt | date }}</small>
+  </div>
+</section>
+
+<section class="visit-us">
+  <h2>Visit La Plaza Tattoo & Art Gallery</h2>
+  <p>Located in the heart of Kansas City's Westside, La Plaza is a cultural hub for custom tattoos, fine art, and creative expression.</p>
+  <p><strong>Address:</strong> 914 W 24th St, Kansas City, MO 64108</p>
+  <p><strong>Phone:</strong> <a href="tel:+18168982716">(816) 898-2716</a></p>
+  <p><strong>Hours:</strong> Tue–Sat: 12PM–8PM</p>
+  <a href="https://www.google.com/maps?q=914+W+24th+St,+Kansas+City,+MO+64108" target="_blank">📍 Get Directions</a>
+</section>

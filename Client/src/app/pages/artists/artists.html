@@ -1,0 +1,17 @@
+<div class="artists-container">
+  <h1>Our Artists</h1>
+  
+  <div class="artist-list">
+    <div *ngFor="let artist of artists" class="artist-card">
+      <h2>{{ artist.name }}</h2>
+      <p>Instagram: {{ artist.instagramHandle }}</p>
+      <div *ngIf="artist.bio" class="artist-bio">
+        <p>{{ artist.bio }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="artists.length === 0" class="no-artists">
+    <p>No artists found.</p>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<h2>Current Promotions</h2>
+<div *ngFor="let deal of deals" class="deal-card">
+  <h3>{{ deal.title }}</h3>
+  <p>{{ deal.description }}</p>
+  <small>Expires: {{ deal.expiresAt | date }}</small>
+  <hr />
+</div>

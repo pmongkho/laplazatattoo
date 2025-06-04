@@ -1,0 +1,48 @@
+<div class="consultation-container">
+  <div *ngIf="!submitted">
+    <h2>Request a Consultation</h2>
+    <form (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="clientName">Name</label>
+        <input type="text" id="clientName" name="clientName" [(ngModel)]="formData.clientName" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="preferredArtist">Preferred Artist (Optional)</label>
+        <select id="preferredArtist" name="preferredArtist" [(ngModel)]="formData.preferredArtistId">
+          <option [ngValue]="undefined">No preference</option>
+          <option *ngFor="let artist of artists" [ngValue]="artist.id">{{ artist.name }}</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="style">Tattoo Style</label>
+        <input type="text" id="style" name="style" [(ngModel)]="formData.style" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="placement">Placement on Body</label>
+        <input type="text" id="placement" name="placement" [(ngModel)]="formData.placement" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="size">Approximate Size</label>
+        <input type="text" id="size" name="size" [(ngModel)]="formData.size" required>
+      </div>
+      
+      <!-- You'll need to implement file uploads separately -->
+      
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+  
+  <div *ngIf="submitted" class="success-message">
+    <h2>Thank you for your consultation request!</h2>
+    <p>We'll review your request and get back to you soon.</p>
+  </div>
+</div>
