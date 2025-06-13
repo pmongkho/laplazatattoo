@@ -1,37 +1,131 @@
-<section class="hero">
-  <h1>Welcome to La Plaza Tattoo & Art Gallery</h1>
-  <p>Westside KC's home for black & grey realism, Chicano artistry, and local fine art. Discover why clients choose La Plaza for bold, timeless work.</p>
+<div class="w-screen">
+	<section class="hero bg-gray-900 text-white py-16 px-4 md:px-8 text-center">
+		<div class="container mx-auto max-w-4xl">
+			<h1 class="text-4xl md:text-5xl font-bold mb-4"
+				>Welcome to La Plaza Tattoo & Art Gallery</h1
+			>
+			<p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
+				>Westside KC's home for black & grey realism, Chicano artistry, and
+				local fine art. Discover why clients choose La Plaza for bold, timeless
+				work.</p
+			>
 
-  <div class="actions">
-    <a routerLink="/consultation"><button>Book a Free Consultation</button></a>
-    <a routerLink="/artists"><button>Meet Our Artists</button></a>
-  </div>
-</section>
+			<div class="actions flex flex-col sm:flex-row justify-center gap-4">
+				<a routerLink="/consultation" class="inline-block">
+					<button
+						class="bg-cyan-400 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full"
+						>Book a Free Consultation</button
+					>
+				</a>
+				<a routerLink="/artists" class="inline-block">
+					<button
+						class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full"
+						>Meet Our Artists</button
+					>
+				</a>
+			</div>
+		</div>
+	</section>
 
-<section class="featured-artists">
-  <h2>Featured Artists</h2>
-  <p>Our artists specialize in black & grey, realism, neo-traditional, and fine line styles.</p>
-  <div *ngFor="let artist of featuredArtists" class="card">
-    <h3>{{ artist.name }}</h3>
-    <p>{{ artist.styles }}</p>
-    <a [routerLink]="['/artists', artist.id]">View Portfolio</a>
-  </div>
-</section>
+	<section class="text-black featured-artists py-16 px-4 bg-white">
+		<div class="container mx-auto max-w-6xl">
+			<h2 class="text-3xl font-bold text-center mb-2">Featured Artists</h2>
+			<p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto"
+				>Our artists specialize in black & grey, realism, neo-traditional, and
+				fine line styles.</p
+			>
 
-<section class="deals">
-  <h2>Current Specials</h2>
-  <div *ngFor="let deal of deals" class="card">
-    <h4>{{ deal.title }}</h4>
-    <p>{{ deal.description }}</p>
-    <small>Expires {{ deal.expiresAt | date }}</small>
-  </div>
-</section>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div
+					*ngFor="let artist of featuredArtists"
+					class="card bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+				>
+					<div class="p-6">
+						<h3 class="text-xl font-bold mb-2">{{ artist.name }}</h3>
+						<p class="text-gray-600 mb-4">{{ artist.styles }}</p>
+						<a
+							[routerLink]="['/artists', artist.id]"
+							class="text-cyan-600 hover:text-cyan-800 font-semibold inline-flex items-center"
+						>
+							View Portfolio
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-4 w-4 ml-1"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 5l7 7-7 7"
+								/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<section class="visit-us">
-  <h2>Visit La Plaza Tattoo & Art Gallery</h2>
-  <p>Located in the heart of Kansas City's Westside, La Plaza is a cultural hub for custom tattoos, fine art, and creative expression.</p>
-  <p><strong>Address:</strong> 914 W 24th St, Kansas City, MO 64108</p>
-  <p><strong>Phone:</strong> <a href="tel:+18168982716">(816) 898-2716</a></p>
-  <p><strong>Hours:</strong> Tue–Sat: 12PM–8PM</p>
-  <a href="https://www.google.com/maps?q=914+W+24th+St,+Kansas+City,+MO+64108" target="_blank">📍 Get Directions</a>
-</section>
+	<section class="deals py-16 px-4 bg-gray-100">
+		<div class="container mx-auto max-w-6xl">
+			<h2 class="text-3xl font-bold text-center mb-10 text-black"
+				>Current Specials</h2
+			>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div
+					*ngFor="let deal of deals"
+					class="card bg-white rounded-lg shadow-md p-6 border-l-4 border-cyan-600"
+				>
+					<h4 class="text-xl font-bold mb-2">{{ deal.title }}</h4>
+					<p class="text-gray-600 mb-4">{{ deal.description }}</p>
+					<small class="text-gray-500 block"
+						>Expires {{ deal.expiresAt | date }}</small
+					>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="visit-us py-16 px-4 bg-gray-900 text-white">
+		<div class="container mx-auto max-w-4xl text-center">
+			<h2 class="text-3xl font-bold mb-6"
+				>Visit La Plaza Tattoo & Art Gallery</h2
+			>
+			<p class="text-lg mb-8 max-w-2xl mx-auto"
+				>Located in the heart of Kansas City's Westside, La Plaza is a cultural
+				hub for custom tattoos, fine art, and creative expression.</p
+			>
+
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto"
+			>
+				<div>
+					<p class="mb-2"
+						><strong class="text-cyan-400">Address:</strong> 914 W 24th St,
+						Kansas City, MO 64108</p
+					>
+					<p class="mb-2"
+						><strong class="text-cyan-400">Phone:</strong>
+						<a href="tel:+18168982716" class="hover:text-gray-300 transition"
+							>(816) 898-2716</a
+						></p
+					>
+					<p><strong class="text-cyan-400">Hours:</strong> Tue–Sat: 12PM–8PM</p>
+				</div>
+				<div class="flex justify-center md:justify-start items-center">
+					<a
+						href="https://www.google.com/maps?q=914+W+24th+St,+Kansas+City,+MO+64108"
+						target="_blank"
+						class="bg-gray-800 hover:bg-gray-700 text-white py-3 px-6 rounded-lg inline-flex items-center transition duration-300"
+					>
+						<span class="mr-2">📍</span> Get Directions
+					</a>
+				</div>
+			</div>
+		</div>
+	</section></div
+>

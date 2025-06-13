@@ -4,12 +4,13 @@ import { DealService } from '../../services/deal.service';
 import { Artist } from '../../models/artist.model';
 import { Deal } from '../../models/deal.model';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {RouterModule} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.html',
-  styleUrls: ['./home.scss'],
   imports: [CommonModule,RouterModule],
 })
 export class HomeComponent implements OnInit {

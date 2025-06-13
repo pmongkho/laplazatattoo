@@ -5,5 +5,6 @@ export interface ConsultationRequest {
   style: string;
   placement: string;
   size: string;
+  description: string;
   referenceImages: string[];
 }

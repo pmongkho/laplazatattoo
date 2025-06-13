@@ -9,5 +9,6 @@ namespace LaPlazaTattoo.API.Models
         public string InstagramHandle { get; set; } = string.Empty;
         public string BookingUrl { get; set; } = string.Empty;
         public bool Featured { get; set; } = false;
+        public string Image { get; set; } = string.Empty;
     }
 }

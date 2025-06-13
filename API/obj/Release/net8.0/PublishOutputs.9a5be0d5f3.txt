@@ -1,0 +1,12 @@
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/LaPlazaTattoo.API
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/appsettings.Development.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/appsettings.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/LaPlazaTattoo.API.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/LaPlazaTattoo.API.deps.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/LaPlazaTattoo.API.runtimeconfig.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/LaPlazaTattoo.API.pdb
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/Microsoft.AspNetCore.OpenApi.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/Microsoft.OpenApi.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/Swashbuckle.AspNetCore.Swagger.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/publish/Swashbuckle.AspNetCore.SwaggerUI.dll

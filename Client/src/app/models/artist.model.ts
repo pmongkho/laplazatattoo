@@ -6,4 +6,5 @@ export interface Artist {
   instagramHandle: string;
   bookingUrl: string;
   featured: boolean;
+  image: string;
 }

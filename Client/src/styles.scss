@@ -1,7 +1,7 @@
-body {
-  font-family: 'Roboto', sans-serif;
-}
+/* Replace the deprecated @import with the modern @use syntax */
+@use 'tailwindcss' as *;
 
-h1, h2, h3 {
-  font-family: 'Staatliches', cursive;
-}
+/* Or use the Tailwind directives directly */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

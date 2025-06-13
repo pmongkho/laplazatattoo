@@ -1,24 +1,67 @@
-<div *ngIf="artist">
-  <h2>{{ artist.name }}</h2>
-  <p><strong>Styles:</strong> {{ artist.styles }}</p>
-  <p>{{ artist.bio }}</p>
+<div *ngIf="artist" class="container mx-auto px-4 py-8 max-w-4xl">
+	<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+		<div class="p-6 md:p-8">
+			<!-- Artist Header -->
+			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+				>{{ artist.name }}</h2
+			>
 
-  <a [href]="'https://instagram.com/' + artist.instagramHandle" target="_blank">
-    <span>&#64;</span>{{ artist.instagramHandle }}
-  </a>
+			<!-- Artist Info -->
+			<div class="space-y-4 mb-6">
+				<p class="text-lg"
+					><span class="font-semibold text-gray-700">Styles:</span> {{
+					artist.styles }}</p
+				>
+				<p class="text-gray-600 leading-relaxed">{{ artist.bio }}</p>
+			</div>
 
-  <div style="margin-top: 1rem;">
-    <a [href]="artist.bookingUrl" target="_blank">
-      <button>Book with Me</button>
-    </a>
-  </div>
+			<!-- Social Media -->
+			<a
+				[href]="'https://instagram.com/' + artist.instagramHandle"
+				target="_blank"
+				class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium mb-6 transition"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-5 w-5 mr-2"
+					fill="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+					/>
+				</svg>
+				<span>&commat;{{ artist.instagramHandle }}</span>
+			</a>
 
-  <!-- Instagram Embed -->
-  <div style="margin-top: 2rem;">
-    <blockquote 
-      class="instagram-media" 
-      [attr.data-instgrm-permalink]="'https://www.instagram.com/' + artist.instagramHandle + '/?utm_source=ig_embed'"
-      data-instgrm-version="14">
-    </blockquote>
-  </div>
+			<!-- Booking Button -->
+			<div class="mb-8">
+				<a [href]="artist.bookingUrl" target="_blank" class="inline-block">
+					<button
+						class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+					>
+						Book with Me
+					</button>
+				</a>
+			</div>
+
+			<!-- Instagram Embed -->
+			<div
+				class="mt-8 instagram-container overflow-hidden rounded-lg shadow-md"
+			>
+				<blockquote
+					class="instagram-media w-full"
+					[attr.data-instgrm-permalink]="'https://www.instagram.com/' + artist.instagramHandle + '/?utm_source=ig_embed'"
+					data-instgrm-version="14"
+					style="min-width: 100%; min-height: 500px"
+				>
+				</blockquote>
+			</div>
+
+			<!-- Instagram Script -->
+			<div class="mt-4 text-center text-sm text-gray-500">
+				<p>Loading latest posts from &commat;{{ artist.instagramHandle }}</p>
+			</div>
+		</div>
+	</div>
 </div>

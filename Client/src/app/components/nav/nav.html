@@ -1,6 +1,109 @@
-<nav class="navbar">
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">LaPlazaTattoo</a>
-  <a routerLink="/artists" routerLinkActive="active">Artists</a>
-  <a routerLink="/consultation" routerLinkActive="active">Consultation</a>
-  <a routerLink="/deals" routerLinkActive="active">Deals</a>
+<nav class="p-4 shadow-lg relative z-50">
+	<div class="container mx-auto flex justify-between items-center">
+		<!-- Logo/Brand -->
+		<a
+			routerLink="/"
+			routerLinkActive="active"
+			[routerLinkActiveOptions]="{ exact: true }"
+			class="text-xl font-bold hover:text-cyan-400 transition duration-300"
+			>_LPT</a
+		>
+
+		<!-- Hamburger button (visible on small screens) -->
+		<button
+			(click)="toggleMenu()"
+			class="md:hidden focus:outline-none text-black hover:text-cyan-400 transition duration-300"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M4 6h16M4 12h16M4 18h16"
+				/>
+			</svg>
+		</button>
+
+		<!-- Desktop menu -->
+		<div class="hidden md:flex space-x-6">
+			<a
+				routerLink="/artists"
+				routerLinkActive="text-cyan-400 border-b-2 border-cyan-400"
+				class="hover:text-cyan-400 py-1 transition duration-300"
+				>Artists</a
+			>
+			<a
+				routerLink="/consultation"
+				routerLinkActive="text-cyan-400 border-b-2 border-cyan-400"
+				class="hover:text-cyan-400 py-1 transition duration-300"
+				>Consultation</a
+			>
+			<a
+				routerLink="/deals"
+				routerLinkActive="text-cyan-400 border-b-2 border-cyan-400"
+				class="hover:text-cyan-400 py-1 transition duration-300"
+				>Deals</a
+			>
+		</div>
+	</div>
+
+	<!-- Mobile menu (fixed overlay, hidden by default) -->
+	<div
+		[ngClass]="{'hidden': !isMenuOpen, 'block': isMenuOpen}"
+		class="md:hidden fixed inset-0 bg-white bg-opacity-95 z-40"
+	>
+		<!-- Close button -->
+		<div class="flex justify-end p-4">
+			<button
+				(click)="closeMenu()"
+				class="text-black hover:text-cyan-400 transition duration-300"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M6 18L18 6M6 6l12 12"
+					/>
+				</svg>
+			</button>
+		</div>
+
+		<!-- Mobile menu items -->
+		<div class="flex flex-col items-center justify-center h-full -mt-16">
+			<a
+				routerLink="/artists"
+				routerLinkActive="text-cyan-400"
+				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-400 transition duration-300"
+				(click)="closeMenu()"
+				>Artists</a
+			>
+			<a
+				routerLink="/consultation"
+				routerLinkActive="text-cyan-400"
+				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-400 transition duration-300"
+				(click)="closeMenu()"
+				>Consultation</a
+			>
+			<a
+				routerLink="/deals"
+				routerLinkActive="text-cyan-400"
+				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-400 transition duration-300"
+				(click)="closeMenu()"
+				>Deals</a
+			>
+		</div>
+	</div>
 </nav>

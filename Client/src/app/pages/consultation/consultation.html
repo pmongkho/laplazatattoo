@@ -1,48 +1,239 @@
-<div class="consultation-container">
-  <div *ngIf="!submitted">
-    <h2>Request a Consultation</h2>
-    <form (ngSubmit)="submitForm()">
-      <div class="form-group">
-        <label for="clientName">Name</label>
-        <input type="text" id="clientName" name="clientName" [(ngModel)]="formData.clientName" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="preferredArtist">Preferred Artist (Optional)</label>
-        <select id="preferredArtist" name="preferredArtist" [(ngModel)]="formData.preferredArtistId">
-          <option [ngValue]="undefined">No preference</option>
-          <option *ngFor="let artist of artists" [ngValue]="artist.id">{{ artist.name }}</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="style">Tattoo Style</label>
-        <input type="text" id="style" name="style" [(ngModel)]="formData.style" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="placement">Placement on Body</label>
-        <input type="text" id="placement" name="placement" [(ngModel)]="formData.placement" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="size">Approximate Size</label>
-        <input type="text" id="size" name="size" [(ngModel)]="formData.size" required>
-      </div>
-      
-      <!-- You'll need to implement file uploads separately -->
-      
-      <button type="submit">Submit Request</button>
-    </form>
-  </div>
-  
-  <div *ngIf="submitted" class="success-message">
-    <h2>Thank you for your consultation request!</h2>
-    <p>We'll review your request and get back to you soon.</p>
-  </div>
+<div class="min-h-screen bg-gray-100 py-12 px-4 min-w-screen">
+	<div class="container mx-auto max-w-3xl">
+		<div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+			<div *ngIf="!submitted">
+				<h2 class="text-3xl font-bold mb-8 text-center"
+					>Request a Consultation</h2
+				>
+
+				<form (ngSubmit)="submitForm()" class="space-y-6">
+					<!-- Two column layout for name and email on larger screens -->
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div class="form-group">
+							<label
+								for="clientName"
+								class="block text-gray-700 font-medium mb-2"
+								>Name *</label
+							>
+							<input
+								type="text"
+								id="clientName"
+								name="clientName"
+								[(ngModel)]="formData.clientName"
+								required
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+							/>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="block text-gray-700 font-medium mb-2"
+								>Email *</label
+							>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								[(ngModel)]="formData.email"
+								required
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+							/>
+						</div>
+					</div>
+
+					<!-- Fix for dropdown positioning -->
+					<div class="form-group relative">
+						<label
+							for="preferredArtist"
+							class="block text-gray-700 font-medium mb-2"
+							>Preferred Artist (Optional)</label
+						>
+						<div class="relative">
+							<select
+								id="preferredArtist"
+								name="preferredArtist"
+								[(ngModel)]="formData.preferredArtistId"
+								class="appearance-none w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition bg-white"
+							>
+								<option [ngValue]="undefined">No preference</option>
+								<option *ngFor="let artist of artists" [ngValue]="artist.id"
+									>{{ artist.name }}</option
+								>
+							</select>
+							<!-- Custom dropdown arrow -->
+							<div
+								class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+							>
+								<svg
+									class="fill-current h-4 w-4"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 20 20"
+								>
+									<path
+										d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+									/>
+								</svg>
+							</div>
+						</div>
+					</div>
+
+					<!-- Two column layout for style and placement on larger screens -->
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div class="form-group">
+							<label for="style" class="block text-gray-700 font-medium mb-2"
+								>Tattoo Style *</label
+							>
+							<input
+								type="text"
+								id="style"
+								name="style"
+								[(ngModel)]="formData.style"
+								required
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+								placeholder="Black & Grey, Traditional, Japanese, etc."
+							/>
+						</div>
+
+						<div class="form-group">
+							<label
+								for="placement"
+								class="block text-gray-700 font-medium mb-2"
+								>Placement on Body *</label
+							>
+							<input
+								type="text"
+								id="placement"
+								name="placement"
+								[(ngModel)]="formData.placement"
+								required
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+								placeholder="Arm, Back, Leg, etc."
+							/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="size" class="block text-gray-700 font-medium mb-2"
+							>Approximate Size *</label
+						>
+						<input
+							type="text"
+							id="size"
+							name="size"
+							[(ngModel)]="formData.size"
+							required
+							class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+							placeholder="3x3 inches, half sleeve, etc."
+						/>
+					</div>
+
+					<div class="form-group mt-8">
+						<label class="block text-gray-700 font-medium mb-2"
+							>Reference Images</label
+						>
+						<div
+							class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-cyan-400 transition-colors"
+						>
+							<div class="space-y-1 text-center">
+								<svg
+									class="mx-auto h-12 w-12 text-gray-400"
+									stroke="currentColor"
+									fill="none"
+									viewBox="0 0 48 48"
+									aria-hidden="true"
+								>
+									<path
+										d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									/>
+								</svg>
+								<div
+									class="flex flex-col sm:flex-row justify-center items-center text-sm text-gray-600"
+								>
+									<label
+										for="file-upload"
+										class="relative cursor-pointer bg-white rounded-md font-medium text-cyan-600 hover:text-cyan-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan-400"
+									>
+										<span>Upload files</span>
+										<input
+											id="file-upload"
+											name="file-upload"
+											type="file"
+											class="sr-only"
+											multiple
+										/>
+									</label>
+									<p class="pl-1">or drag and drop</p>
+								</div>
+								<p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group mt-8">
+						<label
+							for="description"
+							class="block text-gray-700 font-medium mb-2"
+							>Additional Details</label
+						>
+						<textarea
+							id="description"
+							name="description"
+							rows="4"
+							[(ngModel)]="formData.description"
+							class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+							placeholder="Tell us more about your tattoo idea..."
+						></textarea>
+					</div>
+
+					<div class="mt-10">
+						<button
+							type="submit"
+							class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
+						>
+							Submit Consultation Request
+						</button>
+					</div>
+
+					<p class="text-sm text-gray-500 text-center mt-4"
+						>* Required fields</p
+					>
+				</form>
+			</div>
+
+			<div *ngIf="submitted" class="success-message text-center py-12">
+				<div class="bg-green-50 rounded-lg p-8 max-w-md mx-auto">
+					<svg
+						class="mx-auto h-16 w-16 text-green-500"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+						></path>
+					</svg>
+					<h2 class="text-3xl font-bold mt-4 mb-2 text-gray-800"
+						>Thank you for your consultation request!</h2
+					>
+					<p class="text-gray-600 text-lg"
+						>We'll review your request and get back to you soon.</p
+					>
+					<div class="mt-8">
+						<a
+							routerLink="/"
+							class="text-cyan-600 hover:text-cyan-800 font-medium"
+						>
+							Return to Home
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

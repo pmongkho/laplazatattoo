@@ -21,6 +21,7 @@ export class ConsultationComponent implements OnInit {
     style: '',
     placement: '',
     size: '',
+    description: '',
     referenceImages: []
   };
   submitted = false;
