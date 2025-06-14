@@ -8,7 +8,12 @@ import { Observable } from 'rxjs'
 export class ArtistService {
 	private apiUrl = `${environment.apiUrl}/artists`
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) {    
+	// 	console.log('🔍 Environment check:');
+    // console.log('Production mode:', environment.production);
+    // console.log('API URL being used:', this.apiUrl);
+    // console.log('Full environment:', environment);
+}
 
 	getAll(): Observable<Artist[]> {
 		return this.http.get<Artist[]>(this.apiUrl)
