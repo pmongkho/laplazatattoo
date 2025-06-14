@@ -32,3 +32,40 @@
 /Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.pdb
 /Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.genruntimeconfig.cache
 /Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/obj/Debug/net8.0/ref/LaPlazaTattoo.API.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\appsettings.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\web.config
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\appsettings.Development.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\appsettings.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\LaPlazaTattoo.API.deps.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\LaPlazaTattoo.API.runtimeconfig.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.staticwebassets.endpoints.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.exe
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.deps.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.runtimeconfig.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.pdb
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.csproj.AssemblyReference.cache
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.AssemblyInfoInputs.cache
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.AssemblyInfo.cs
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.csproj.CoreCompileInputs.cache
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.sourcelink.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\scopedcss\bundle\LaPlazaTattoo.API.styles.css
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaT.30E46F8F.Up2Date
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\refint\LaPlazaTattoo.API.dll
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.pdb
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.genruntimeconfig.cache
+C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\ref\LaPlazaTattoo.API.dll
