@@ -1,8 +1,19 @@
 {
-	"rewrites": [
+	"build": {
+		"env": {
+			"NODE_VERSION": "18"
+		}
+	},
+	"functions": {
+		"dist/LaPlazaTattoo.Client/server/main.js": {
+			"memory": 1024,
+			"maxDuration": 10
+		}
+	},
+	"routes": [
 		{
-			"source": "/(.*)",
-			"destination": "/index.html"
+			"src": "/(.*)",
+			"dest": "dist/LaPlazaTattoo.Client/server/main.js"
 		}
 	]
 }
