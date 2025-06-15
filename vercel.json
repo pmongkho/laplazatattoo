@@ -1,19 +1,5 @@
 {
-	"build": {
-		"env": {
-			"NODE_VERSION": "20"
-		}
-	},
-	"functions": {
-		"Client/dist/LaPlazaTattoo.Client/server/main.server.mjs": {
-			"memory": 1024,
-			"maxDuration": 10
-		}
-	},
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "Client/dist/LaPlazaTattoo.Client/server/main.server.mjs"
-		}
-	]
+	"buildCommand": "npm run build",
+	"outputDirectory": "dist/LaPlazaTattoo.Client/browser",
+	"rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
