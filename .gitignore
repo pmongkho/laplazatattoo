@@ -1,0 +1,30 @@
+# Ignore build output directories
+[Bb]in/
+[Oo]bj/
+
+# Ignore development and release build folders (often within bin/ or obj/, but good to be explicit)
+[Dd]ebug/
+[Rr]elease/
+
+# Ignore package directories (like node_modules for client, or potentially NuGet package folders if not restored)
+node_modules/
+packages/
+
+# Ignore editor/IDE specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userprefs
+
+# Ignore test results
+TestResults/
+
+# Ignore secrets files (if you use .NET Secret Manager)
+*.usersecrets.json
+
+# Ignore appsettings.Development.json if it contains local secrets (optional, depends on your setup)
+# appsettings.Development.json
+
+# Ignore the specific file where the secret was found in build output (redundant if bin/ is ignored, but safe)
+API/bin/Debug/net8.0/appsettings.json
