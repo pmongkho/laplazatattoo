@@ -7,11 +7,14 @@
 			class="artist-card bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:scale-105 cursor-pointer"
 			[routerLink]="['/artists', artist.id]"
 		>
+
+					<!-- Add image here for the main artist list -->
+			<img
+				[src]="artist.image"
+				[alt]="artist.name"
+				class="w-full h-64 object-cover"
+			/>
 			<div class="p-6">
-				<!-- <img [src]="artist.image" 
-             [alt]="artist.name" 
-             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105 round-full"
-             onerror="this.src='assets/images/placeholder-artist.jpg'"> -->
 
 				<h2 class="text-2xl font-bold mb-2 text-black">{{ artist.name }}</h2>
 

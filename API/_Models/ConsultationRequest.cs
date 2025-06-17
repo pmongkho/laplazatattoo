@@ -9,6 +9,8 @@ namespace LaPlazaTattoo.API.Models
         public string Style { get; set; } = string.Empty;
         public string Placement { get; set; } = string.Empty;
         public string Size { get; set; } = string.Empty;
+        public string? Description { get; set; } // Add this line
+
         public List<string> ReferenceImages { get; set; } = new();
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }

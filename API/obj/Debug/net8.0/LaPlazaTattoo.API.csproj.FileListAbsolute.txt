@@ -32,40 +32,163 @@
 /Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.pdb
 /Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.genruntimeconfig.cache
 /Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/obj/Debug/net8.0/ref/LaPlazaTattoo.API.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\appsettings.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\web.config
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\appsettings.Development.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\appsettings.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\LaPlazaTattoo.API.deps.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\publish\LaPlazaTattoo.API.runtimeconfig.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.staticwebassets.endpoints.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.exe
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.deps.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.runtimeconfig.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\LaPlazaTattoo.API.pdb
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.csproj.AssemblyReference.cache
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.AssemblyInfoInputs.cache
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.AssemblyInfo.cs
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.csproj.CoreCompileInputs.cache
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.sourcelink.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\scopedcss\bundle\LaPlazaTattoo.API.styles.css
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.build.json.cache
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaT.30E46F8F.Up2Date
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\refint\LaPlazaTattoo.API.dll
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.pdb
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\LaPlazaTattoo.API.genruntimeconfig.cache
-C:\Users\PAULINA\Desktop\LaPlazaTattoo\API\obj\Debug\net8.0\ref\LaPlazaTattoo.API.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/appsettings.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/publish/web.config
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/publish/appsettings.Development.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/publish/appsettings.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/publish/LaPlazaTattoo.API.deps.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/publish/LaPlazaTattoo.API.runtimeconfig.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/LaPlazaTattoo.API.staticwebassets.endpoints.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/LaPlazaTattoo.API.exe
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/LaPlazaTattoo.API.deps.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/LaPlazaTattoo.API.runtimeconfig.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/LaPlazaTattoo.API.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/LaPlazaTattoo.API.pdb
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.csproj.AssemblyReference.cache
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.AssemblyInfoInputs.cache
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.AssemblyInfo.cs
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.csproj.CoreCompileInputs.cache
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.sourcelink.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/scopedcss/bundle/LaPlazaTattoo.API.styles.css
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/staticwebassets.build.json.cache
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaT.30E46F8F.Up2Date
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/refint/LaPlazaTattoo.API.dll
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.pdb
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/LaPlazaTattoo.API.genruntimeconfig.cache
+C:/Users/PAULINA/Desktop/LaPlazaTattoo/API/obj/Debug/net8.0/ref/LaPlazaTattoo.API.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/publish/web.config
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/publish/appsettings.Development.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/publish/appsettings.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/publish/LaPlazaTattoo.API.deps.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/publish/LaPlazaTattoo.API.runtimeconfig.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Npgsql.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Humanizer.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Build.Locator.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.CodeAnalysis.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.CodeAnalysis.CSharp.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.CodeAnalysis.Workspaces.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Mono.TextTemplating.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.CodeDom.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Composition.AttributedModel.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Composition.Convention.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Composition.Hosting.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Composition.Runtime.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Composition.TypedParts.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.IO.Pipelines.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Text.Encodings.Web.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Text.Json.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Azure.Core.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Azure.Storage.Blobs.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Azure.Storage.Common.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.ClientModel.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.IO.Hashing.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.Memory.Data.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/AspNet.Security.OAuth.Instagram.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/LaPlazaTattoo.API.staticwebassets.runtime.json
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll

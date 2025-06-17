@@ -19,7 +19,7 @@ namespace LaPlazaTattoo.API.Controllers
         public IActionResult GetAll() => Ok(_artistService.GetAll());
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById(Guid id)
         {
             var artist = _artistService.GetById(id);
             return artist is null ? NotFound() : Ok(artist);

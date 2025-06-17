@@ -6,8 +6,7 @@
 					>Request a Consultation</h2
 				>
 
-				<form (ngSubmit)="submitForm()" class="space-y-6">
-					<!-- Two column layout for name and email on larger screens -->
+				<form #formRef="ngForm" (ngSubmit)="submitForm()" class="space-y-6">
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div class="form-group">
 							<label
@@ -20,9 +19,16 @@
 								id="clientName"
 								name="clientName"
 								[(ngModel)]="formData.clientName"
+								#clientName="ngModel"
 								required
-								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition placeholder-gray-400"
+								placeholder="Enter your name"
 							/>
+							<div
+								*ngIf="clientName.invalid && clientName.touched"
+								class="text-red-500 text-sm mt-1"
+								>Name is required.</div
+							>
 						</div>
 
 						<div class="form-group">
@@ -34,49 +40,38 @@
 								id="email"
 								name="email"
 								[(ngModel)]="formData.email"
+								#email="ngModel"
 								required
-								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition placeholder-gray-400"
+								placeholder="you@example.com"
 							/>
+							<div
+								*ngIf="email.invalid && email.touched"
+								class="text-red-500 text-sm mt-1"
+								>Valid email is required.</div
+							>
 						</div>
 					</div>
 
-					<!-- Fix for dropdown positioning -->
-					<div class="form-group relative">
+					<div class="form-group">
 						<label
 							for="preferredArtist"
 							class="block text-gray-700 font-medium mb-2"
 							>Preferred Artist (Optional)</label
 						>
-						<div class="relative">
-							<select
-								id="preferredArtist"
-								name="preferredArtist"
-								[(ngModel)]="formData.preferredArtistId"
-								class="appearance-none w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition bg-white"
+						<select
+							id="preferredArtist"
+							name="preferredArtist"
+							[(ngModel)]="formData.preferredArtist"
+							class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition placeholder-gray-400"
+						>
+							<option [ngValue]="undefined">No preference</option>
+							<option *ngFor="let artist of artists" [ngValue]="artist.name"
+								>{{ artist.name }}</option
 							>
-								<option [ngValue]="undefined">No preference</option>
-								<option *ngFor="let artist of artists" [ngValue]="artist.id"
-									>{{ artist.name }}</option
-								>
-							</select>
-							<!-- Custom dropdown arrow -->
-							<div
-								class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-							>
-								<svg
-									class="fill-current h-4 w-4"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-								>
-									<path
-										d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-									/>
-								</svg>
-							</div>
-						</div>
+						</select>
 					</div>
 
-					<!-- Two column layout for style and placement on larger screens -->
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div class="form-group">
 							<label for="style" class="block text-gray-700 font-medium mb-2"
@@ -87,10 +82,16 @@
 								id="style"
 								name="style"
 								[(ngModel)]="formData.style"
+								#style="ngModel"
 								required
-								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition placeholder-gray-400"
 								placeholder="Black & Grey, Traditional, Japanese, etc."
 							/>
+							<div
+								*ngIf="style.invalid && style.touched"
+								class="text-red-500 text-sm mt-1"
+								>Style is required.</div
+							>
 						</div>
 
 						<div class="form-group">
@@ -104,10 +105,16 @@
 								id="placement"
 								name="placement"
 								[(ngModel)]="formData.placement"
+								#placement="ngModel"
 								required
-								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+								class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition placeholder-gray-400"
 								placeholder="Arm, Back, Leg, etc."
 							/>
+							<div
+								*ngIf="placement.invalid && placement.touched"
+								class="text-red-500 text-sm mt-1"
+								>Placement is required.</div
+							>
 						</div>
 					</div>
 
@@ -120,10 +127,16 @@
 							id="size"
 							name="size"
 							[(ngModel)]="formData.size"
+							#size="ngModel"
 							required
-							class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+							class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition placeholder-gray-400"
 							placeholder="3x3 inches, half sleeve, etc."
 						/>
+						<div
+							*ngIf="size.invalid && size.touched"
+							class="text-red-500 text-sm mt-1"
+							>Size is required.</div
+						>
 					</div>
 
 					<div class="form-group mt-8">
@@ -162,6 +175,7 @@
 											type="file"
 											class="sr-only"
 											multiple
+											(change)="onFileSelected($event)"
 										/>
 									</label>
 									<p class="pl-1">or drag and drop</p>
@@ -182,7 +196,7 @@
 							name="description"
 							rows="4"
 							[(ngModel)]="formData.description"
-							class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
+							class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition placeholder-gray-400"
 							placeholder="Tell us more about your tattoo idea..."
 						></textarea>
 					</div>
@@ -190,7 +204,8 @@
 					<div class="mt-10">
 						<button
 							type="submit"
-							class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
+							[disabled]="formRef.invalid"
+							class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
 						>
 							Submit Consultation Request
 						</button>
@@ -209,14 +224,13 @@
 						fill="none"
 						stroke="currentColor"
 						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
 					>
 						<path
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							stroke-width="2"
 							d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-						></path>
+						/>
 					</svg>
 					<h2 class="text-3xl font-bold mt-4 mb-2 text-gray-800"
 						>Thank you for your consultation request!</h2
@@ -228,9 +242,8 @@
 						<a
 							routerLink="/"
 							class="text-cyan-600 hover:text-cyan-800 font-medium"
+							>Return to Home</a
 						>
-							Return to Home
-						</a>
 					</div>
 				</div>
 			</div>

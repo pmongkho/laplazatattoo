@@ -2,7 +2,7 @@ namespace LaPlazaTattoo.API.Models
 {
     public class Artist
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Styles { get; set; } = string.Empty; // e.g., "Black & Grey, Realism"
         public string Bio { get; set; } = string.Empty;

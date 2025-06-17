@@ -1,1 +1,19 @@
-{"Version":1,"Hash":"sC5XXPSSxcheZnTdu/5i6jS/tqWSZrohcxpIIUICWwk=","Source":"LaPlazaTattoo.API","BasePath":"_content/LaPlazaTattoo.API","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "N1wZlg573HQTADs/H5cIhSJkafqWijvDvEO3bVqn7tY=",
+  "Source": "LaPlazaTattoo.API",
+  "BasePath": "_content/LaPlazaTattoo.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LaPlazaTattoo.API/wwwroot",
+      "Source": "LaPlazaTattoo.API",
+      "ContentRoot": "/Users/a_mac/Desktop/CS PROJECTS/DOTNET/laplazatattoo/API/wwwroot/",
+      "BasePath": "_content/LaPlazaTattoo.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

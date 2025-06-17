@@ -40,6 +40,13 @@
 					*ngFor="let artist of featuredArtists"
 					class="card bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
 				>
+
+								<!-- Add image here for featured artists -->
+					<img
+						[src]="artist.image"
+						[alt]="artist.name"
+						class="w-full h-48 object-cover"
+					/>
 					<div class="p-6">
 						<h3 class="text-xl font-bold mb-2">{{ artist.name }}</h3>
 						<p class="text-gray-600 mb-4">{{ artist.styles }}</p>

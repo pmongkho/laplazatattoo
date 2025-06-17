@@ -1,5 +1,11 @@
 <div *ngIf="artist" class="container mx-auto px-4 py-8 max-w-4xl">
 	<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+					<!-- Add image here for the main artist list -->
+			<img
+				[src]="artist.image"
+				[alt]="artist.name"
+				class="w-full h-64 object-cover"
+			/>
 		<div class="p-6 md:p-8">
 			<!-- Artist Header -->
 			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
