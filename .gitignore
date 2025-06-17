@@ -10,6 +10,8 @@
 node_modules/
 packages/
 
+API/appsettings.json
+
 # Ignore editor/IDE specific files
 .vscode/
 .idea/
