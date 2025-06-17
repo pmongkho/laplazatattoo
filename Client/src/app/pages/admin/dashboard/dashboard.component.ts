@@ -8,6 +8,7 @@ import { environment } from '../../../../environments/environment'
 import { FormsModule } from '@angular/forms' // Import FormsModule for ngModel
 import { switchMap } from 'rxjs/operators' // Import switchMap
 import { of } from 'rxjs' // Import of
+import { Router } from '@angular/router' // Import Router
 
 @Component({
 	selector: 'app-dashboard',
@@ -47,10 +48,10 @@ export class DashboardComponent implements OnInit {
 	selectedArtist: Artist | null = null
 
 	showAddUserModal = false // Property for Add User Modal
-
 	constructor(
 		private consultationService: ConsultationService,
-		private artistService: ArtistService
+		private artistService: ArtistService,
+		private router: Router // Inject Router
 	) {}
 
 	ngOnInit(): void {
@@ -117,8 +118,6 @@ export class DashboardComponent implements OnInit {
 		// TODO: Implement actual user creation form/logic
 	}
 
-
-
 	// --- Modal Management Methods ---
 
 	openViewConsultationModal(consultation: ConsultationDisplay): void {
@@ -126,12 +125,10 @@ export class DashboardComponent implements OnInit {
 		this.showViewConsultationModal = true
 	}
 
-
 	openEditArtistModal(artist: Artist): void {
 		this.selectedArtist = artist
 		this.showEditArtistModal = true
 	}
-
 
 	openAddUserModal(): void {
 		this.showAddUserModal = true
@@ -258,6 +255,8 @@ export class DashboardComponent implements OnInit {
 				console.log('Artist submitted successfully', response)
 				this.artistSubmissionSuccess = true
 				this.isSubmittingArtist = false
+				this.loadArtists() // Reload artists after successful submission
+				this.router.navigate(['/home']) // Navigate to home page
 			},
 		})
 	}

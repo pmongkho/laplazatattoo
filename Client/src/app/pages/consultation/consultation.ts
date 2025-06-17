@@ -5,7 +5,8 @@ import { ArtistService } from '../../services/artist.service'
 import { ConsultationService } from '../../services/consultation.service'
 import { FormsModule } from '@angular/forms'
 import { isUndefined } from 'util'
-import {ConsultationSubmission} from '../../models/consulation.model'
+import { ConsultationSubmission } from '../../models/consulation.model'
+import { Router } from '@angular/router'
 
 @Component({
 	selector: 'app-consultation',
@@ -24,14 +25,13 @@ export class ConsultationComponent implements OnInit {
 		size: '',
 		description: '',
 		referenceImages: [],
-
 	}
 	submitted = false
 	selectedFiles: File[] = [] // Property to hold selected files
-
 	constructor(
 		private consultationService: ConsultationService,
-		private artistService: ArtistService
+		private artistService: ArtistService,
+		private router: Router // Inject Router
 	) {}
 
 	ngOnInit(): void {
@@ -86,7 +86,18 @@ export class ConsultationComponent implements OnInit {
 				console.log('Consultation submitted successfully', response)
 				this.submitted = true
 				this.selectedFiles = [] // Clear selected files on success
-				// Optionally reset form data
+				// Reset form data
+				this.formData = {
+					clientName: '',
+					email: '',
+					preferredArtist: undefined,
+					style: '',
+					placement: '',
+					size: '',
+					description: '',
+					referenceImages: [],
+				}
+				this.router.navigate(['/']) // Navigate to home page
 			},
 			error: (error) => {
 				console.error('Error submitting consultation', error)
