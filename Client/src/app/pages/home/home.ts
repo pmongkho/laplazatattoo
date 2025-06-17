@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.artistService.getAll().subscribe(data => {
-      this.featuredArtists = data.filter(a => a.featured);
+      this.featuredArtists = data.filter(a => a.featured===true);
     });
 
     this.dealService.getDeals().subscribe(data => this.deals = data.slice(0, 2));

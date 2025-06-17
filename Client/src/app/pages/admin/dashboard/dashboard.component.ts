@@ -256,7 +256,7 @@ export class DashboardComponent implements OnInit {
 				this.artistSubmissionSuccess = true
 				this.isSubmittingArtist = false
 				this.loadArtists() // Reload artists after successful submission
-				this.router.navigate(['/home']) // Navigate to home page
+				this.router.navigate(['/']) // Navigate to home page
 			},
 		})
 	}
