@@ -2,7 +2,7 @@ import { Routes } from '@angular/router'
 import { ArtistsComponent } from './pages/artists/artists'
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import {AdminLoginComponent} from './pages/admin/login/login.component'
-import {AdminAuthGuard} from './auth/guards/auth.guard'
+import {AdminAuthGuard} from './pages/admin/auth/guards/auth.guard'
 
 export const routes: Routes = [
 	{

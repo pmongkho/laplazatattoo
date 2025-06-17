@@ -35,7 +35,7 @@ export class ArtistService {
 		return this.http.delete<void>(`${this.apiUrl}/${id}`)
 	}
 	// New method to create an artist with FormData (including file upload)
-	createArtistWithPhoto(payload: FormData): Observable<Artist> {
+	createArtist(payload: FormData): Observable<Artist> {
 		const token = this.authService.getToken()
 		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
 		// HttpClient automatically sets Content-Type to multipart/form-data for FormData

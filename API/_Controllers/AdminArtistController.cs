@@ -1,41 +1,29 @@
 // API/_Controllers/AdminArtistController.cs
-using LaPlazaTattoo.API.Models;
+using LaPlazaTattoo.API.Models; // Make sure this using directive is present
 using LaPlazaTattoo.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Logging; // Ensure this is included
+using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace LaPlazaTattoo.API.Controllers
 {
     [ApiController]
     [Route("api/admin/artists")]
-    [Authorize(Roles = "Admin")] // Requires authentication and Admin role
+    [Authorize(Roles = "Admin")]
     public class AdminArtistController : ControllerBase
     {
         private readonly IArtistService _artistService;
-        private readonly IFileStorageService _fileStorageService; // Inject file storage service
+        private readonly IFileStorageService _fileStorageService;
         private readonly ILogger<AdminArtistController> _logger;
 
         public AdminArtistController(IArtistService artistService, IFileStorageService fileStorageService, ILogger<AdminArtistController> logger)
         {
             _artistService = artistService;
-            _fileStorageService = fileStorageService; // Assign injected service
+            _fileStorageService = fileStorageService;
             _logger = logger;
-        }
-
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            try
-            {
-                var artists = _artistService.GetAll();
-                return Ok(artists);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error retrieving all artists");
-                return StatusCode(500, "An error occurred while retrieving artists");
-            }
         }
 
         [HttpGet("{id}")]
@@ -57,20 +45,19 @@ namespace LaPlazaTattoo.API.Controllers
         }
 
         [HttpPost]
-        // Modify to accept [FromForm] for file upload
+        [Consumes("multipart/form-data")]
         public async Task<IActionResult> Create(
             [FromForm] string name,
             [FromForm] string styles,
             [FromForm] string bio,
-            [FromForm] string? instagramHandle, // Optional
-            [FromForm] string? bookingUrl,      // Optional
-            [FromForm] bool featured,           // Boolean from form
-            [FromForm] IFormFile? imageFile     // File upload
+            [FromForm] string? instagramHandle,
+            [FromForm] string? bookingUrl,
+            [FromForm] bool featured,
+            [FromForm] IFormFile? imageFile
         )
         {
             try
             {
-                // Basic validation
                 if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(styles) || string.IsNullOrEmpty(bio))
                 {
                     return BadRequest("Name, Styles, and Bio are required.");
@@ -81,33 +68,29 @@ namespace LaPlazaTattoo.API.Controllers
                 {
                     try
                     {
-                        // Upload the image file
-                        // Assuming UploadFileAsync takes IFormFile and a container name
                         imageUrl = await _fileStorageService.UploadFileAsync(imageFile, "artist-images");
                         _logger.LogInformation("Uploaded artist image: {ImageUrl}", imageUrl);
                     }
                     catch (Exception uploadEx)
                     {
-                        _logger.LogError(uploadEx, "Error uploading artist image");
-                        // Decide how to handle upload failure - return error or create artist without image?
-                        // For now, returning an error:
+                        _logger.LogError(uploadEx, "Error uploading artist image during creation");
                         return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An error occurred during image upload." });
                     }
                 }
 
                 var newArtist = new Artist
                 {
-                    Id = Guid.NewGuid(), // Generate new ID in the backend
+                    Id = Guid.NewGuid(),
                     Name = name,
                     Styles = styles,
                     Bio = bio,
-                    InstagramHandle = instagramHandle ?? string.Empty, // Handle optional nulls
-                    BookingUrl = bookingUrl ?? string.Empty,           // Handle optional nulls
+                    InstagramHandle = instagramHandle ?? string.Empty,
+                    BookingUrl = bookingUrl ?? string.Empty,
                     Featured = featured,
-                    Image = imageUrl // Store the uploaded image URL
+                    Image = imageUrl
                 };
 
-                var createdArtist = _artistService.Create(newArtist); // Use the service to save
+                var createdArtist = _artistService.Create(newArtist);
 
                 return CreatedAtAction(nameof(GetById), new { id = createdArtist.Id }, createdArtist);
             }
@@ -118,30 +101,64 @@ namespace LaPlazaTattoo.API.Controllers
             }
         }
 
-
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id, [FromBody] Artist artist)
+        [Consumes("multipart/form-data")] // Keep this attribute
+        // Change method signature to accept the new model
+        public async Task<IActionResult> Update(
+            Guid id,
+            [FromForm] AdminArtistUpdateModel model // Use the new model here
+        )
         {
             try
             {
-                if (artist == null)
-                    return BadRequest("Artist data is null");
-
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
-
-                if (id != artist.Id)
-                    return BadRequest("ID in URL does not match ID in the request body");
+                // Basic validation using the model properties
+                if (string.IsNullOrEmpty(model.Name) || string.IsNullOrEmpty(model.Styles) || string.IsNullOrEmpty(model.Bio))
+                {
+                    return BadRequest("Name, Styles, and Bio are required.");
+                }
 
                 var existingArtist = _artistService.GetById(id);
                 if (existingArtist == null)
                     return NotFound($"Artist with ID {id} not found");
 
-                // TODO: Handle image update if needed. This current method expects [FromBody] Artist,
-                // which doesn't support file uploads directly. A separate endpoint or a FromForm
-                // update method would be needed for image updates. For now, this only updates text fields.
+                string imageUrl = existingArtist.Image; // Start with the existing image URL
 
-                var updatedArtist = _artistService.Update(artist);
+                if (model.ImageFile != null) // Check the ImageFile property from the model
+                {
+                    try
+                    {
+                        // Upload the new image file
+                        string newImageUrl = await _fileStorageService.UploadFileAsync(model.ImageFile, "artist-images");
+                        _logger.LogInformation("Uploaded new artist image for update: {ImageUrl}", newImageUrl);
+
+                        // Delete the old image if it exists and is different from the new one
+                        if (!string.IsNullOrEmpty(existingArtist.Image) && existingArtist.Image != newImageUrl)
+                        {
+                            await _fileStorageService.DeleteFileAsync(existingArtist.Image, "artist-images");
+                            _logger.LogInformation("Deleted old artist image: {ImageUrl}", existingArtist.Image);
+                        }
+
+                        imageUrl = newImageUrl; // Update the image URL to the new one
+                    }
+                    catch (Exception uploadEx)
+                    {
+                        _logger.LogError(uploadEx, "Error uploading new artist image during update for ID {ArtistId}", id);
+                        return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An error occurred during image upload." });
+                    }
+                }
+                // If model.ImageFile is null, the imageUrl remains the existing one.
+
+                // Update the existing artist object with new data from the model
+                existingArtist.Name = model.Name;
+                existingArtist.Styles = model.Styles;
+                existingArtist.Bio = model.Bio;
+                existingArtist.InstagramHandle = model.InstagramHandle ?? string.Empty;
+                existingArtist.BookingUrl = model.BookingUrl ?? string.Empty;
+                existingArtist.Featured = model.Featured;
+                existingArtist.Image = imageUrl; // Set the (potentially new) image URL
+
+                var updatedArtist = _artistService.Update(existingArtist);
+
                 return Ok(updatedArtist);
             }
             catch (Exception ex)
@@ -152,7 +169,7 @@ namespace LaPlazaTattoo.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             try
             {
@@ -160,10 +177,21 @@ namespace LaPlazaTattoo.API.Controllers
                 if (existingArtist == null)
                     return NotFound($"Artist with ID {id} not found");
 
-                // TODO: Add logic here to delete the associated image from storage
+                if (!string.IsNullOrEmpty(existingArtist.Image))
+                {
+                    try
+                    {
+                        await _fileStorageService.DeleteFileAsync(existingArtist.Image, "artist-images");
+                        _logger.LogInformation("Deleted artist image during deletion: {ImageUrl}", existingArtist.Image);
+                    }
+                    catch (Exception deleteEx)
+                    {
+                        _logger.LogError(deleteEx, "Error deleting artist image during artist deletion for ID {ArtistId}", id);
+                    }
+                }
 
                 _artistService.Delete(id);
-                return NoContent(); // 204 No Content is standard for successful deletion
+                return NoContent();
             }
             catch (Exception ex)
             {

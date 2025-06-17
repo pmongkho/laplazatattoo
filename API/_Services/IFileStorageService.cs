@@ -10,5 +10,7 @@ namespace LaPlazaTattoo.API.Services
         Task<string> UploadFileAsync(IFormFile file, string containerName);
         // Add methods for deleting files, getting file info, etc. if needed
         // Task DeleteFileAsync(string fileName, string containerName);
+        Task DeleteFileAsync(string fileUrl, string containerName); // Added DeleteFileAsync
+
     }
 }

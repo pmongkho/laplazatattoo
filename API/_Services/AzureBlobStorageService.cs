@@ -65,5 +65,34 @@ namespace LaPlazaTattoo.API.Services
 
             throw new InvalidOperationException("File is empty.");
         }
+
+        public async Task DeleteFileAsync(string fileUrl, string containerName)
+        {
+            if (string.IsNullOrEmpty(fileUrl))
+            {
+                // Nothing to delete if the URL is empty
+                return;
+            }
+
+            try
+            {
+                // Parse the blob name from the URL
+                // Assuming the URL format is like https://[accountname].blob.core.windows.net/[containername]/[blobname]
+                Uri uri = new Uri(fileUrl);
+                string blobName = Path.GetFileName(uri.LocalPath);
+
+                BlobContainerClient containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+                BlobClient blobClient = containerClient.GetBlobClient(blobName);
+
+                await blobClient.DeleteIfExistsAsync();
+            }
+            catch (Exception ex)
+            {
+                // Log the error, but don't necessarily fail the update operation
+                // if deleting the old image fails.
+                Console.WriteLine($"Error deleting blob {fileUrl}: {ex.Message}");
+                // Depending on requirements, you might want to throw or handle differently
+            }
+        }
     }
 }
