@@ -1,5 +1,5 @@
 <div
-	*ngIf="showEditArtistModal && selectedArtist"
+	*ngIf="showModal && artist"
 	class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"
 >
 	<div
@@ -23,7 +23,7 @@
 							type="text"
 							id="editArtistName"
 							name="editArtistName"
-							[(ngModel)]="selectedArtist.name"
+							[(ngModel)]="artist.name"
 							required
 							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
 						/>
@@ -38,7 +38,7 @@
 							type="text"
 							id="editArtistStyles"
 							name="editArtistStyles"
-							[(ngModel)]="selectedArtist.styles"
+							[(ngModel)]="artist.styles"
 							required
 							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
 							placeholder="e.g., Black & Grey, Realism"
@@ -54,7 +54,7 @@
 							id="editArtistBio"
 							name="editArtistBio"
 							rows="3"
-							[(ngModel)]="selectedArtist.bio"
+							[(ngModel)]="artist.bio"
 							required
 							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
 							placeholder="Tell us about the artist..."
@@ -70,7 +70,7 @@
 							type="text"
 							id="editArtistInstagram"
 							name="editArtistInstagram"
-							[(ngModel)]="selectedArtist.instagramHandle"
+							[(ngModel)]="artist.instagramHandle"
 							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
 							placeholder="@artistname"
 						/>
@@ -85,7 +85,7 @@
 							type="url"
 							id="editArtistBookingUrl"
 							name="editArtistBookingUrl"
-							[(ngModel)]="selectedArtist.bookingUrl"
+							[(ngModel)]="artist.bookingUrl"
 							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600"
 							placeholder="https://bookingwebsite.com"
 						/>
@@ -95,7 +95,7 @@
 							type="checkbox"
 							id="editArtistFeatured"
 							name="editArtistFeatured"
-							[(ngModel)]="selectedArtist.featured"
+							[(ngModel)]="artist.featured"
 							class="h-4 w-4 text-cyan-600 border-gray-300 rounded focus:ring-cyan-600"
 						/>
 						<label

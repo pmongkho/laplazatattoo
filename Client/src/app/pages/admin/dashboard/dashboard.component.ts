@@ -10,13 +10,13 @@ import { AdminService } from '../../../services/admin.service' // Import AdminSe
 // Models
 import { Artist } from '../../../models/artist.model'
 import { ConsultationDisplay } from '../../../models/consulation.model'
-import {ArtistService} from '../../../services/artist.service'
-import {AuthService} from '../../../services/auth.service'
-import { AdminArtistListComponent } from "./components/admin-artist-list/admin-artist-list.component";
-import { AdminConsultationListComponent } from "./components/admin-consultation-list/admin-consultation-list.component";
-import { AdminAddArtistModalComponent } from "./components/admin-add-artist-modal/admin-add-artist-modal.component";
-import { AdminViewConsultationModalComponent } from "./components/admin-view-consultation-modal/admin-view-consultation-modal.component";
-import { AdminEditArtistModalComponent } from "./components/admin-edit-artist-modal/admin-edit-artist-modal.component";
+import { ArtistService } from '../../../services/artist.service'
+import { AuthService } from '../../../services/auth.service'
+import { AdminArtistListComponent } from './components/admin-artist-list/admin-artist-list.component'
+import { AdminConsultationListComponent } from './components/admin-consultation-list/admin-consultation-list.component'
+import { AdminAddArtistModalComponent } from './components/admin-add-artist-modal/admin-add-artist-modal.component'
+import { AdminViewConsultationModalComponent } from './components/admin-view-consultation-modal/admin-view-consultation-modal.component'
+import { AdminEditArtistModalComponent } from './components/admin-edit-artist-modal/admin-edit-artist-modal.component'
 
 @Component({
 	selector: 'app-dashboard',
@@ -44,8 +44,7 @@ export class DashboardComponent implements OnInit {
 
 	// --- Modal Visibility Properties (Keep these in DashboardComponent) ---
 	showViewConsultationModal = false
-	showAddArtistModal = false // Renamed from showAddArtistForm
-	showEditArtistModal = false
+	showModal = false // Renamed from showModal
 
 	// --- Data for Modals (Keep these in DashboardComponent to pass as Inputs) ---
 	selectedConsultation: ConsultationDisplay | null = null
@@ -123,14 +122,14 @@ export class DashboardComponent implements OnInit {
 
 	addNewArtist(): void {
 		console.log('Add New Artist button clicked - Open Add Artist Modal')
-		this.showAddArtistModal = true // Show the modal
+		this.showModal = true // Show the modal
 		// The modal component will handle its own newArtist state
 	}
 
 	editArtist(artist: Artist): void {
 		console.log('Edit Artist clicked:', artist)
 		this.selectedArtist = { ...artist } // Set data for the modal (pass a copy)
-		this.showEditArtistModal = true // Show the modal
+		this.showModal = true // Show the modal
 	}
 
 	// --- Methods to Handle Events from Modals (Add these to DashboardComponent) ---
@@ -143,7 +142,7 @@ export class DashboardComponent implements OnInit {
 
 	onAddArtistModalClosed(): void {
 		console.log('Add Artist modal closed')
-		this.showAddArtistModal = false
+		this.showModal = false
 		// No need to clear newArtist here, modal component manages it
 	}
 
@@ -156,7 +155,7 @@ export class DashboardComponent implements OnInit {
 
 	onEditArtistModalClosed(): void {
 		console.log('Edit Artist modal closed')
-		this.showEditArtistModal = false
+		this.showModal = false
 		this.selectedArtist = null // Clear selected data
 	}
 
@@ -207,7 +206,7 @@ export class DashboardComponent implements OnInit {
 
 	// openEditArtistModal(artist: Artist): void {
 	// 	this.selectedArtist = artist;
-	// 	this.showEditArtistModal = true;
+	// 	this.showModal = true;
 	// }
 
 	// openAddUserModal(): void {

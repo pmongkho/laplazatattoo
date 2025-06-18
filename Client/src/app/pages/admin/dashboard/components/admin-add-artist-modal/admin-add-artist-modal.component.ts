@@ -1,9 +1,8 @@
-import {Artist} from '../../../../../models/artist.model'
-import { Component, Input, Output, EventEmitter } from '@angular/core'; // Ensure EventEmitter is imported
-import {AdminService} from '../../../../../services/admin.service';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-
+import { Artist } from '../../../../../models/artist.model'
+import { Component, Input, Output, EventEmitter } from '@angular/core' // Ensure EventEmitter is imported
+import { AdminService } from '../../../../../services/admin.service'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
 @Component({
 	selector: 'app-admin-add-artist-modal',
@@ -12,7 +11,6 @@ import {FormsModule} from '@angular/forms';
 	templateUrl: './admin-add-artist-modal.component.html',
 })
 export class AdminAddArtistModalComponent {
-	showAddArtistForm = false // Using form directly as a modal for Add Artist
 	// --- Add New Artist Form Properties ---
 	newArtist: Artist = {
 		id: '00000000-0000-0000-0000-000000000000', // Placeholder for Guid
@@ -44,7 +42,7 @@ export class AdminAddArtistModalComponent {
 	// Method to open the Add New Artist form/modal
 	addNewArtist(): void {
 		console.log('Add New Artist button clicked - Open Add Artist Modal')
-		this.showAddArtistForm = true // Show the inline form/modal
+		this.showModal = true // Show the inline form/modal
 		this.resetNewArtistForm()
 	}
 

@@ -31,7 +31,7 @@
 		<div class="container mx-auto max-w-6xl">
 			<h2 class="text-3xl font-bold text-center mb-2">Featured Artists</h2>
 			<p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto"
-				>Our artists specialize in black & grey, realism, neo-traditional, and
+				>Our artists specialize in black & grey realism, color realism, neo-traditional, lettering, and
 				fine line styles.</p
 			>
 
@@ -82,7 +82,7 @@
 			>
 
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-				<div
+				<a routerLink="/deals"><div
 					*ngFor="let deal of deals"
 					class="card bg-white rounded-lg shadow-md p-6 border-l-4 border-cyan-600"
 				>
@@ -91,7 +91,7 @@
 					<small class="text-gray-500 block"
 						>Expires {{ deal.expiresAt | date }}</small
 					>
-				</div>
+				</div></a>
 			</div>
 		</div>
 	</section>

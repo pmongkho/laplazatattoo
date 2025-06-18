@@ -64,16 +64,15 @@
 			<div *ngIf="activeTab === 'consultation'">
 				<h2 class="text-2xl font-bold text-gray-800 mb-6">Consultations</h2>
 
-
 				<!-- Consultation Cards -->
-    <!-- Consultation List Component -->
-    <app-admin-consultation-list
-        [consultations]="consultations"
-        [isLoading]="isLoading"
-        [error]="error"
-        (viewConsultationClicked)="viewDetails($event)"
-        (archiveConsultationClicked)="archiveConsultation($event)"
-    ></app-admin-consultation-list>
+				<!-- Consultation List Component -->
+				<app-admin-consultation-list
+					[consultations]="consultations"
+					[isLoading]="isLoading"
+					[error]="error"
+					(viewConsultationClicked)="viewDetails($event)"
+					(archiveConsultationClicked)="archiveConsultation($event)"
+				></app-admin-consultation-list>
 
 				<div
 					*ngIf="!isLoading && !error && consultations.length === 0"
@@ -86,32 +85,29 @@
 	</div>
 </div>
 
-
-
 <!-- Client/src/app/pages/admin/dashboard/dashboard.component.html -->
 
 <!-- ... existing dashboard HTML (header, tabs, list components) ... -->
 
 <!-- Add New Artist Modal Component -->
 <app-admin-add-artist-modal
-    [showModal]="showAddArtistModal"
-    (closeModal)="onAddArtistModalClosed()"
-    (artistAdded)="onArtistAdded($event)"
+	[showModal]="showModal"
+	(closeModal)="onAddArtistModalClosed()"
+	(artistAdded)="onArtistAdded($event)"
 ></app-admin-add-artist-modal>
 
 <!-- View Consultation Details Modal Component -->
 <app-admin-view-consultation-modal
-    [showModal]="showViewConsultationModal"
-    [consultation]="selectedConsultation"
-    (closeModal)="onViewConsultationModalClosed()"
-    (archiveConsultationClicked)="archiveConsultation($event)"
+	[showModal]="showViewConsultationModal"
+	[consultation]="selectedConsultation"
+	(closeModal)="onViewConsultationModalClosed()"
+	(archiveConsultationClicked)="archiveConsultation($event)"
 ></app-admin-view-consultation-modal>
 
 <!-- Edit Artist Modal Component -->
 <app-admin-edit-artist-modal
-    [showModal]="showEditArtistModal"
-    [artist]="selectedArtist"
-    (closeModal)="onEditArtistModalClosed()"
-    (artistUpdated)="onArtistUpdated($event)"
+	[showModal]="showModal"
+	[artist]="selectedArtist"
+	(closeModal)="onEditArtistModalClosed()"
+	(artistUpdated)="onArtistUpdated($event)"
 ></app-admin-edit-artist-modal>
-

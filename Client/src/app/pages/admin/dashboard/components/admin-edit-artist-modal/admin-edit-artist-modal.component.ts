@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core' // Ensure EventEmitter is imported
 import { Artist } from '../../../../../models/artist.model'
-import {AdminService} from '../../../../../services/admin.service'
-import {CommonModule} from '@angular/common'
-import {FormsModule} from '@angular/forms'
+import { AdminService } from '../../../../../services/admin.service'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
 @Component({
 	selector: 'app-admin-edit-artist-modal',
@@ -12,10 +12,8 @@ import {FormsModule} from '@angular/forms'
 })
 export class AdminEditArtistModalComponent {
 	// --- Modal Visibility Properties ---
-	showEditArtistModal = false
 
 	// --- Selected Item Properties ---
-	selectedArtist: Artist | null = null
 
 	// --- Edit Artist Form Properties ---
 	editArtistImageFile: File | null = null
@@ -24,11 +22,12 @@ export class AdminEditArtistModalComponent {
 	editArtistSubmissionError: any = null
 	editArtistSubmissionSuccess = false
 
+	
 	@Input() showModal: boolean = false
 	@Input() artist: Artist | null = null // Input for the artist data
 	@Output() closeModal = new EventEmitter<void>()
 	@Output() artistUpdated = new EventEmitter<Artist>() // Add this Output property
-
+  selectedArtist: Artist|null = null
 	// ... existing properties (selectedArtistImageFile, isSubmittingEditArtist, etc.) ...
 	// Note: selectedArtist property might be removed if you use the @Input() artist directly or copy it internally
 
@@ -43,7 +42,7 @@ export class AdminEditArtistModalComponent {
 		this.isSubmittingEditArtist = false
 		this.editArtistSubmissionError = null
 		this.editArtistSubmissionSuccess = false
-		this.showEditArtistModal = true
+		this.showModal = true
 	}
 
 	// --- Edit Artist Form Methods ---
