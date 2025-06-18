@@ -49,24 +49,24 @@
 				*ngIf="consultation.referenceImages.length > 1"
 				class="flex flex-wrap gap-2 p-4 border-b border-gray-200"
 			>
-				<p class="font-semibold text-gray-700 w-full mb-1"
-					>All Images:</p
+				<p class="font-semibold text-gray-700 w-full mb-1">All Images:</p>
+				<span
+					*ngFor="let imageUrl of consultation.referenceImages"
+					(click)="selectImage(consultation, imageUrl)"
+					class="block w-12 h-12 rounded overflow-hidden border transition cursor-pointer"
+					[ngClass]="{
+						'border-cyan-600 ring-2 ring-cyan-600':
+							consultation.selectedImageUrl === imageUrl,
+						'border-gray-300 hover:border-cyan-600':
+							consultation.selectedImageUrl !== imageUrl
+					}"
 				>
-<span
-	*ngFor="let imageUrl of consultation.referenceImages"
-	(click)="selectImage(consultation, imageUrl)"
-	class="block w-12 h-12 rounded overflow-hidden border transition cursor-pointer"
-	[ngClass]="{
-		'border-cyan-600 ring-2 ring-cyan-400': consultation.selectedImageUrl === imageUrl,
-		'border-gray-300 hover:border-cyan-600': consultation.selectedImageUrl !== imageUrl
-	}"
->
-	<img
-		[src]="imageUrl"
-		alt="Reference Image Thumbnail"
-		class="w-full h-full object-cover"
-	/>
-</span>
+					<img
+						[src]="imageUrl"
+						alt="Reference Image Thumbnail"
+						class="w-full h-full object-cover"
+					/>
+				</span>
 			</div>
 		</div>
 		<!-- Placeholder if no images -->

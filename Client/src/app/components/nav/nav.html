@@ -5,14 +5,14 @@
 			routerLink="/"
 			routerLinkActive="active"
 			[routerLinkActiveOptions]="{ exact: true }"
-			class="text-xl font-bold hover:text-cyan-400 transition duration-300"
+			class="text-xl font-bold hover:text-cyan-600 transition duration-300"
 			>_LPT</a
 		>
 
 		<!-- Hamburger button (visible on small screens) -->
 		<button
 			(click)="toggleMenu()"
-			class="md:hidden focus:outline-none text-black hover:text-cyan-400 transition duration-300"
+			class="md:hidden focus:outline-none text-black hover:text-cyan-600 transition duration-300"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -34,20 +34,20 @@
 		<div class="hidden md:flex space-x-6">
 			<a
 				routerLink="/artists"
-				routerLinkActive="text-cyan-400 border-b-2 border-cyan-400"
-				class="hover:text-cyan-400 py-1 transition duration-300"
+				routerLinkActive="text-cyan-600 border-b-2 border-cyan-600"
+				class="hover:text-cyan-600 py-1 transition duration-300"
 				>Artists</a
 			>
 			<a
 				routerLink="/consultation"
-				routerLinkActive="text-cyan-400 border-b-2 border-cyan-400"
-				class="hover:text-cyan-400 py-1 transition duration-300"
+				routerLinkActive="text-cyan-600 border-b-2 border-cyan-600"
+				class="hover:text-cyan-600 py-1 transition duration-300"
 				>Consultation</a
 			>
 			<a
 				routerLink="/deals"
-				routerLinkActive="text-cyan-400 border-b-2 border-cyan-400"
-				class="hover:text-cyan-400 py-1 transition duration-300"
+				routerLinkActive="text-cyan-600 border-b-2 border-cyan-600"
+				class="hover:text-cyan-600 py-1 transition duration-300"
 				>Deals</a
 			>
 		</div>
@@ -62,7 +62,7 @@
 		<div class="flex justify-end p-4">
 			<button
 				(click)="closeMenu()"
-				class="text-black hover:text-cyan-400 transition duration-300"
+				class="text-black hover:text-cyan-600 transition duration-300"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -85,22 +85,22 @@
 		<div class="flex flex-col items-center justify-center h-full -mt-16">
 			<a
 				routerLink="/artists"
-				routerLinkActive="text-cyan-400"
-				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-400 transition duration-300"
+				routerLinkActive="text-cyan-600"
+				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-600 transition duration-300"
 				(click)="closeMenu()"
 				>Artists</a
 			>
 			<a
 				routerLink="/consultation"
-				routerLinkActive="text-cyan-400"
-				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-400 transition duration-300"
+				routerLinkActive="text-cyan-600"
+				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-600 transition duration-300"
 				(click)="closeMenu()"
 				>Consultation</a
 			>
 			<a
 				routerLink="/deals"
-				routerLinkActive="text-cyan-400"
-				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-400 transition duration-300"
+				routerLinkActive="text-cyan-600"
+				class="block px-4 py-4 text-2xl font-bold text-black hover:text-cyan-600 transition duration-300"
 				(click)="closeMenu()"
 				>Deals</a
 			>
