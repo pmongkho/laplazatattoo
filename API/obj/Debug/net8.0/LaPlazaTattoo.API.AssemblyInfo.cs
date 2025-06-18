@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LaPlazaTattoo.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e80e91a7d660a42c728d7499e1ee95c1f0c64f07")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+659a3c12c84a9e5bc96cb5c69da775123d8e8b1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("LaPlazaTattoo.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LaPlazaTattoo.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

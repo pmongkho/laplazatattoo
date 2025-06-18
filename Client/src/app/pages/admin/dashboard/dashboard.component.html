@@ -2,7 +2,11 @@
 	<div class="container mx-auto max-w-6xl">
 		<div class="flex justify-between items-center mb-8">
 			<h1 class="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
-			<button (click)="this.authService.logout()" >logout</button>
+			<button
+				(click)="this.authService.logout()"
+				class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 shadow-md"
+				>logout</button
+			>
 		</div>
 
 		<!-- Tab Navigation -->
@@ -37,52 +41,17 @@
 				<div class="flex justify-end mb-6">
 					<button
 						class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 shadow-md"
-						(click)="addNewArtist()"
+						(click)="this.adminService.addNewArtist()"
 					>
 						Add New Artist
 					</button>
 				</div>
 
-				<!-- Artist Cards -->
-				<div
-					*ngIf="artists.length > 0"
-					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-				>
-					<div
-						*ngFor="let artist of artists"
-						class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-xl hover:scale-105"
-					>
-						<img
-							[src]="artist.image"
-							[alt]="artist.name"
-							class="w-full h-48 object-cover"
-						/>
-						<div class="p-5">
-							<h3 class="text-xl font-bold text-gray-900 mb-2">{{
-								artist.name
-							}}</h3>
-							<p class="text-gray-600 text-sm mb-3">{{ artist.styles }}</p>
-							<p class="text-gray-700 text-sm line-clamp-3 mb-4">{{
-								artist.bio
-							}}</p>
-							<div class="flex justify-end space-x-3">
-								<button
-									class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm py-1 px-3 rounded transition duration-300"
-									(click)="editArtist(artist)"
-								>
-									Edit
-								</button>
-								<button
-									class="bg-red-500 hover:bg-red-600 text-white text-sm py-1 px-3 rounded transition duration-300"
-									(click)="deleteArtist(artist)"
-								>
-									Delete
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				<app-admin-artist-list
+					[artists]="artists"
+					(editArtistClicked)="editArtist($event)"
+					(deleteArtistClicked)="deleteArtist($event)"
+				></app-admin-artist-list>
 				<div
 					*ngIf="artists.length === 0"
 					class="bg-white rounded-lg shadow-md p-8 text-center text-gray-600"
@@ -114,82 +83,14 @@
 				</div>
 
 				<!-- Consultation Cards -->
-				<div
-					*ngIf="!isLoading && !error && consultations.length > 0"
-					class="grid grid-cols-1 md:grid-cols-2 gap-6"
-				>
-					<div
-						*ngFor="let consultation of consultations"
-						class="bg-white rounded-lg shadow-md p-6 border-l-4 border-cyan-600 transform transition duration-300 hover:shadow-xl"
-					>
-						<h3 class="text-xl font-bold text-gray-900 mb-2">{{
-							consultation.clientName
-						}}</h3>
-						<p class="text-gray-700 mb-1">
-							<span class="font-semibold">Email:</span> {{ consultation.email }}
-						</p>
-						<p *ngIf="consultation.preferredArtist" class="text-gray-700 mb-1">
-							<span class="font-semibold">Preferred Artist:</span>
-							{{ consultation.preferredArtist }}
-						</p>
-						<p class="text-gray-700 mb-1">
-							<span class="font-semibold">Style:</span> {{ consultation.style }}
-						</p>
-						<p class="text-gray-700 mb-1">
-							<span class="font-semibold">Placement:</span>
-							{{ consultation.placement }}
-						</p>
-						<p class="text-gray-700 mb-4">
-							<span class="font-semibold">Size:</span> {{ consultation.size }}
-						</p>
-						<div *ngIf="consultation.description" class="mb-4">
-							<p class="font-semibold text-gray-700">Details:</p>
-							<p class="text-gray-600 text-sm">{{
-								consultation.description
-							}}</p>
-						</div>
-						<div
-							*ngIf="
-								consultation.referenceImages &&
-								consultation.referenceImages.length > 0
-							"
-							class="mb-4"
-						>
-							<p class="font-semibold text-gray-700 mb-2">Reference Images:</p>
-							<div class="flex flex-wrap gap-2">
-								<a
-									*ngFor="let imageUrl of consultation.referenceImages"
-									[href]="imageUrl"
-									target="_blank"
-									class="block w-16 h-16 rounded overflow-hidden border border-gray-300 hover:border-cyan-600 transition"
-								>
-									<img
-										[src]="imageUrl"
-										alt="Reference Image"
-										class="w-full h-full object-cover"
-									/>
-								</a>
-							</div>
-						</div>
-						<div class="text-sm text-gray-500">
-							Submitted: {{ consultation.createdAt | date : 'short' }}
-						</div>
-						<div class="mt-4 flex justify-end space-x-3">
-							<button
-								class="bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded transition duration-300"
-								(click)="viewDetails(consultation)"
-							>
-								View Details
-							</button>
-							<button
-								class="bg-red-500 hover:bg-red-600 text-white text-sm py-1 px-3 rounded transition duration-300"
-								(click)="archiveConsultation(consultation)"
-							>
-								Archive
-							</button>
-						</div>
-					</div>
-				</div>
+    <!-- Consultation List Component -->
+    <app-admin-consultation-list
+        [consultations]="consultations"
+        [isLoading]="isLoading"
+        [error]="error"
+        (viewConsultationClicked)="viewDetails($event)"
+        (archiveConsultationClicked)="archiveConsultation($event)"
+    ></app-admin-consultation-list>
 
 				<div
 					*ngIf="!isLoading && !error && consultations.length === 0"
@@ -202,405 +103,32 @@
 	</div>
 </div>
 
-<!-- Add New Artist Modal -->
-<div
-	*ngIf="showAddArtistForm"
-	class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"
->
-	<div
-		class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white"
-	>
-		<div class="mt-3 text-center">
-			<h3 class="text-lg leading-6 font-medium text-gray-900"
-				>Add New Artist</h3
-			>
-			<div class="mt-2 px-7 py-3">
-				<form
-					(ngSubmit)="onSubmitNewArtist()"
-					#artistForm="ngForm"
-					class="space-y-4 text-left"
-				>
-					<div>
-						<label for="artistName" class="block text-gray-700 font-medium mb-2"
-							>Name *</label
-						>
-						<input
-							type="text"
-							id="artistName"
-							name="artistName"
-							[(ngModel)]="newArtist.name"
-							required
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-						/>
-					</div>
-					<div>
-						<label
-							for="artistStyles"
-							class="block text-gray-700 font-medium mb-2"
-							>Styles *</label
-						>
-						<input
-							type="text"
-							id="artistStyles"
-							name="artistStyles"
-							[(ngModel)]="newArtist.styles"
-							required
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="e.g., Black & Grey, Realism"
-						/>
-					</div>
-					<div>
-						<label for="artistBio" class="block text-gray-700 font-medium mb-2"
-							>Bio *</label
-						>
-						<textarea
-							id="artistBio"
-							name="artistBio"
-							rows="3"
-							[(ngModel)]="newArtist.bio"
-							required
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="Tell us about the artist..."
-						></textarea>
-					</div>
-					<div>
-						<label
-							for="artistInstagram"
-							class="block text-gray-700 font-medium mb-2"
-							>Instagram Handle</label
-						>
-						<input
-							type="text"
-							id="artistInstagram"
-							name="artistInstagram"
-							[(ngModel)]="newArtist.instagramHandle"
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="@artistname"
-						/>
-					</div>
-					<div>
-						<label
-							for="artistBookingUrl"
-							class="block text-gray-700 font-medium mb-2"
-							>Booking URL</label
-						>
-						<input
-							type="url"
-							id="artistBookingUrl"
-							name="artistBookingUrl"
-							[(ngModel)]="newArtist.bookingUrl"
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="https://bookingwebsite.com"
-						/>
-					</div>
-					<div class="flex items-center">
-						<input
-							type="checkbox"
-							id="artistFeatured"
-							name="artistFeatured"
-							[(ngModel)]="newArtist.featured"
-							class="h-4 w-4 text-cyan-600 border-gray-300 rounded focus:ring-cyan-400"
-						/>
-						<label
-							for="artistFeatured"
-							class="ml-2 block text-gray-700 font-medium"
-							>Featured Artist</label
-						>
-					</div>
-					<div>
-						<label
-							for="artistImage"
-							class="block text-gray-700 font-medium mb-2"
-							>Profile Picture</label
-						>
-						<input
-							type="file"
-							id="artistImage"
-							name="artistImage"
-							(change)="onFileSelectedForArtist($event)"
-							accept="image/*"
-							class="w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
-						/>
-						<div *ngIf="newArtistImageFile" class="mt-2 text-sm text-gray-500">
-							Selected file: {{ newArtistImageFile.name }}
-						</div>
-					</div>
-					<div *ngIf="isSubmittingArtist" class="text-center text-cyan-600">
-						Submitting artist...
-					</div>
-					<div *ngIf="artistSubmissionError" class="text-center text-red-500">
-						{{ artistSubmissionError }}
-					</div>
-					<div
-						*ngIf="artistSubmissionSuccess"
-						class="text-center text-green-600"
-					>
-						Artist added successfully!
-					</div>
-					<div class="flex justify-end space-x-4 mt-6">
-						<button
-							type="button"
-							class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 transition duration-300"
-							(click)="cancelAddArtist()"
-							[disabled]="isSubmittingArtist"
-						>
-							Cancel
-						</button>
-						<button
-							type="submit"
-							class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white font-bold transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-							[disabled]="!artistForm.form.valid || isSubmittingArtist"
-						>
-							Save Artist
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
 
-<!-- View Consultation Details Modal -->
-<div
-	*ngIf="showViewConsultationModal && selectedConsultation"
-	class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"
->
-	<div
-		class="relative top-20 mx-auto p-5 border w-full max-w-md shadow-lg rounded-md bg-white"
-	>
-		<div class="mt-3 text-left">
-			<h3 class="text-lg leading-6 font-medium text-gray-900 mb-4"
-				>Consultation Details</h3
-			>
-			<div class="mt-2 px-7 py-3 space-y-3 text-sm text-gray-700">
-				<p
-					><span class="font-semibold">Client Name:</span>
-					{{ selectedConsultation.clientName }}</p
-				>
-				<p
-					><span class="font-semibold">Email:</span>
-					{{ selectedConsultation.email }}</p
-				>
-				<p *ngIf="selectedConsultation.preferredArtist"
-					><span class="font-semibold">Preferred Artist:</span>
-					{{ selectedConsultation.preferredArtist }}</p
-				>
-				<p
-					><span class="font-semibold">Style:</span>
-					{{ selectedConsultation.style }}</p
-				>
-				<p
-					><span class="font-semibold">Placement:</span>
-					{{ selectedConsultation.placement }}</p
-				>
-				<p
-					><span class="font-semibold">Size:</span>
-					{{ selectedConsultation.size }}</p
-				>
-				<div *ngIf="selectedConsultation.description">
-					<p class="font-semibold">Details:</p>
-					<p class="text-gray-600 text-sm">{{
-						selectedConsultation.description
-					}}</p>
-				</div>
-				<div
-					*ngIf="
-						selectedConsultation.referenceImages &&
-						selectedConsultation.referenceImages.length > 0
-					"
-				>
-					<p class="font-semibold mb-2">Reference Images:</p>
-					<div class="flex flex-wrap gap-2">
-						<a
-							*ngFor="let imageUrl of selectedConsultation.referenceImages"
-							[href]="imageUrl"
-							target="_blank"
-							class="block w-16 h-16 rounded overflow-hidden border border-gray-300 hover:border-cyan-600 transition"
-						>
-							<img
-								[src]="imageUrl"
-								alt="Reference Image"
-								class="w-full h-full object-cover"
-							/>
-						</a>
-					</div>
-				</div>
-				<p class="text-xs text-gray-500 mt-4"
-					>Submitted: {{ selectedConsultation.createdAt | date : 'short' }}</p
-				>
-			</div>
-			<div class="items-center px-4 py-3">
-				<button
-					id="ok-btn"
-					class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-					(click)="closeViewConsultationModal()"
-				>
-					Close
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
 
-<!-- Edit Artist Modal -->
-<div
-	*ngIf="showEditArtistModal && selectedArtist"
-	class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"
->
-	<div
-		class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white"
-	>
-		<div class="mt-3 text-center">
-			<h3 class="text-lg leading-6 font-medium text-gray-900">Edit Artist</h3>
-			<div class="mt-2 px-7 py-3">
-				<form
-					(ngSubmit)="onSubmitEditArtist()"
-					#editArtistForm="ngForm"
-					class="space-y-4 text-left"
-				>
-					<div>
-						<label
-							for="editArtistName"
-							class="block text-gray-700 font-medium mb-2"
-							>Name *</label
-						>
-						<input
-							type="text"
-							id="editArtistName"
-							name="editArtistName"
-							[(ngModel)]="selectedArtist.name"
-							required
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-						/>
-					</div>
-					<div>
-						<label
-							for="editArtistStyles"
-							class="block text-gray-700 font-medium mb-2"
-							>Styles *</label
-						>
-						<input
-							type="text"
-							id="editArtistStyles"
-							name="editArtistStyles"
-							[(ngModel)]="selectedArtist.styles"
-							required
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="e.g., Black & Grey, Realism"
-						/>
-					</div>
-					<div>
-						<label
-							for="editArtistBio"
-							class="block text-gray-700 font-medium mb-2"
-							>Bio *</label
-						>
-						<textarea
-							id="editArtistBio"
-							name="editArtistBio"
-							rows="3"
-							[(ngModel)]="selectedArtist.bio"
-							required
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="Tell us about the artist..."
-						></textarea>
-					</div>
-					<div>
-						<label
-							for="editArtistInstagram"
-							class="block text-gray-700 font-medium mb-2"
-							>Instagram Handle</label
-						>
-						<input
-							type="text"
-							id="editArtistInstagram"
-							name="editArtistInstagram"
-							[(ngModel)]="selectedArtist.instagramHandle"
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="@artistname"
-						/>
-					</div>
-					<div>
-						<label
-							for="editArtistBookingUrl"
-							class="block text-gray-700 font-medium mb-2"
-							>Booking URL</label
-						>
-						<input
-							type="url"
-							id="editArtistBookingUrl"
-							name="editArtistBookingUrl"
-							[(ngModel)]="selectedArtist.bookingUrl"
-							class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-							placeholder="https://bookingwebsite.com"
-						/>
-					</div>
-					<div class="flex items-center">
-						<input
-							type="checkbox"
-							id="editArtistFeatured"
-							name="editArtistFeatured"
-							[(ngModel)]="selectedArtist.featured"
-							class="h-4 w-4 text-cyan-600 border-gray-300 rounded focus:ring-cyan-400"
-						/>
-						<label
-							for="editArtistFeatured"
-							class="ml-2 block text-gray-700 font-medium"
-							>Featured Artist</label
-						>
-					</div>
-					<div>
-						<label
-							for="editArtistImage"
-							class="block text-gray-700 font-medium mb-2"
-							>Profile Picture</label
-						>
-						<input
-							type="file"
-							id="editArtistImage"
-							name="editArtistImage"
-							(change)="onFileSelectedForEditArtist($event)"
-							accept="image/*"
-							class="w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
-						/>
-						<div *ngIf="editArtistImageFile" class="mt-2 text-sm text-gray-500">
-							Selected file: {{ editArtistImageFile.name }}
-						</div>
-					</div>
-					<div *ngIf="isSubmittingEditArtist" class="text-center text-cyan-600">
-						Submitting artist...
-					</div>
-					<div
-						*ngIf="editArtistSubmissionError"
-						class="text-center text-red-500"
-					>
-						{{ editArtistSubmissionError }}
-					</div>
-					<div
-						*ngIf="editArtistSubmissionSuccess"
-						class="text-center text-green-600"
-					>
-						Artist edited successfully!
-					</div>
-					<div class="flex justify-end space-x-4 mt-6">
-						<button
-							type="button"
-							class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 transition duration-300"
-							(click)="closeEditArtistModal()"
-							[disabled]="isSubmittingEditArtist"
-						>
-							Cancel
-						</button>
-						<button
-							type="submit"
-							class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white font-bold transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-							[disabled]="!editArtistForm.form.valid || isSubmittingEditArtist"
-						>
-							Save Changes
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+<!-- Client/src/app/pages/admin/dashboard/dashboard.component.html -->
+
+<!-- ... existing dashboard HTML (header, tabs, list components) ... -->
+
+<!-- Add New Artist Modal Component -->
+<app-admin-add-artist-modal
+    [showModal]="showAddArtistModal"
+    (closeModal)="onAddArtistModalClosed()"
+    (artistAdded)="onArtistAdded($event)"
+></app-admin-add-artist-modal>
+
+<!-- View Consultation Details Modal Component -->
+<app-admin-view-consultation-modal
+    [showModal]="showViewConsultationModal"
+    [consultation]="selectedConsultation"
+    (closeModal)="onViewConsultationModalClosed()"
+    (archiveConsultationClicked)="archiveConsultation($event)" // Keep this binding if archive is still handled by dashboard
+></app-admin-view-consultation-modal>
+
+<!-- Edit Artist Modal Component -->
+<app-admin-edit-artist-modal
+    [showModal]="showEditArtistModal"
+    [artist]="selectedArtist"
+    (closeModal)="onEditArtistModalClosed()"
+    (artistUpdated)="onArtistUpdated($event)"
+></app-admin-edit-artist-modal>
+

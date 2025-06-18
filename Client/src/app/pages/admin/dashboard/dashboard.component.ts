@@ -12,11 +12,24 @@ import { Artist } from '../../../models/artist.model'
 import { ConsultationDisplay } from '../../../models/consulation.model'
 import {ArtistService} from '../../../services/artist.service'
 import {AuthService} from '../../../services/auth.service'
+import { AdminArtistListComponent } from "./components/admin-artist-list/admin-artist-list.component";
+import { AdminConsultationListComponent } from "./components/admin-consultation-list/admin-consultation-list.component";
+import { AdminAddArtistModalComponent } from "./components/admin-add-artist-modal/admin-add-artist-modal.component";
+import { AdminViewConsultationModalComponent } from "./components/admin-view-consultation-modal/admin-view-consultation-modal.component";
+import { AdminEditArtistModalComponent } from "./components/admin-edit-artist-modal/admin-edit-artist-modal.component";
 
 @Component({
 	selector: 'app-dashboard',
 	templateUrl: './dashboard.component.html',
-	imports: [CommonModule, FormsModule], // Add FormsModule here
+	imports: [
+		CommonModule,
+		FormsModule,
+		AdminArtistListComponent, // Ensure list components are imported
+		AdminConsultationListComponent,
+		AdminAddArtistModalComponent, // Add modal components here
+		AdminEditArtistModalComponent,
+		AdminViewConsultationModalComponent,
+	],
 	standalone: true,
 })
 export class DashboardComponent implements OnInit {
@@ -29,40 +42,14 @@ export class DashboardComponent implements OnInit {
 	consultations: ConsultationDisplay[] = []
 	artists: Artist[] = []
 
-	// --- Modal Visibility Properties ---
+	// --- Modal Visibility Properties (Keep these in DashboardComponent) ---
 	showViewConsultationModal = false
-	showAddArtistForm = false // Using form directly as a modal for Add Artist
+	showAddArtistModal = false // Renamed from showAddArtistForm
 	showEditArtistModal = false
-	showAddUserModal = false // Property for Add User Modal
 
-	// --- Selected Item Properties ---
+	// --- Data for Modals (Keep these in DashboardComponent to pass as Inputs) ---
 	selectedConsultation: ConsultationDisplay | null = null
-	selectedArtist: Artist | null = null
-
-	// --- Add New Artist Form Properties ---
-	newArtist: Artist = {
-		id: '00000000-0000-0000-0000-000000000000', // Placeholder for Guid
-		name: '',
-		styles: '',
-		bio: '',
-		instagramHandle: '',
-		bookingUrl: '',
-		featured: false,
-		image: '', // This will store the URL after upload
-	}
-
-	// New Artist Form Properties
-	newArtistImageFile: File | null = null
-	isSubmittingArtist = false
-	artistSubmissionError: any = null
-	artistSubmissionSuccess = false
-
-	// --- Edit Artist Form Properties ---
-	editArtistImageFile: File | null = null
-	selectedArtistImageFile: File | null = null
-	isSubmittingEditArtist = false
-	editArtistSubmissionError: any = null
-	editArtistSubmissionSuccess = false
+	selectedArtist: Artist | null = null // Keep this to pass to edit modal
 
 	// --- Constructor ---
 	constructor(
@@ -126,222 +113,90 @@ export class DashboardComponent implements OnInit {
 		})
 	}
 
-	// --- Consultation Management Methods ---
+	// --- Methods to Open Modals (Keep and modify in DashboardComponent) ---
 
-	// Method to open the View Consultation Details modal
 	viewDetails(consultation: ConsultationDisplay): void {
 		console.log('View Details clicked:', consultation)
-		this.selectedConsultation = consultation
-		this.showViewConsultationModal = true
+		this.selectedConsultation = consultation // Set data for the modal
+		this.showViewConsultationModal = true // Show the modal
 	}
 
-	// Method to close the View Consultation Details modal
-	closeViewConsultationModal(): void {
-		console.log('Close View Consultation modal clicked')
+	addNewArtist(): void {
+		console.log('Add New Artist button clicked - Open Add Artist Modal')
+		this.showAddArtistModal = true // Show the modal
+		// The modal component will handle its own newArtist state
+	}
+
+	editArtist(artist: Artist): void {
+		console.log('Edit Artist clicked:', artist)
+		this.selectedArtist = { ...artist } // Set data for the modal (pass a copy)
+		this.showEditArtistModal = true // Show the modal
+	}
+
+	// --- Methods to Handle Events from Modals (Add these to DashboardComponent) ---
+
+	onViewConsultationModalClosed(): void {
+		console.log('View Consultation modal closed')
 		this.showViewConsultationModal = false
-		this.selectedConsultation = null // Clear selected consultation on close
+		this.selectedConsultation = null // Clear selected data
 	}
 
-	// Placeholder method for archiving a consultation
+	onAddArtistModalClosed(): void {
+		console.log('Add Artist modal closed')
+		this.showAddArtistModal = false
+		// No need to clear newArtist here, modal component manages it
+	}
+
+	onArtistAdded(newArtist: Artist): void {
+		// Listen for the artistAdded event
+		console.log('Artist added successfully:', newArtist)
+		this.loadArtists() // Refresh the artist list
+		// The modal should emit closeModal as well, handled by onAddArtistModalClosed
+	}
+
+	onEditArtistModalClosed(): void {
+		console.log('Edit Artist modal closed')
+		this.showEditArtistModal = false
+		this.selectedArtist = null // Clear selected data
+	}
+
+	onArtistUpdated(updatedArtist: Artist): void {
+		// Listen for the artistUpdated event
+		console.log('Artist updated successfully:', updatedArtist)
+		this.loadArtists() // Refresh the artist list
+		// The modal should emit closeModal as well, handled by onEditArtistModalClosed
+	}
+
+	// --- Placeholder Methods (Keep in DashboardComponent for now) ---
 	archiveConsultation(consultation: ConsultationDisplay): void {
 		console.log('Archive Consultation clicked:', consultation)
 		// TODO: Implement actual archive logic (e.g., show confirmation, call service)
 		alert(
 			`Archive consultation from: ${consultation.clientName} (Not implemented yet)`
 		)
+		// If archive logic is moved to modal/service, this method would call that and then loadConsultations()
 	}
 
-	// --- Artist Management Methods ---
-
-	// Method to open the Add New Artist form/modal
-	addNewArtist(): void {
-		console.log('Add New Artist button clicked - Open Add Artist Modal')
-		this.showAddArtistForm = true // Show the inline form/modal
-		this.resetNewArtistForm()
-	}
-
-	// Method to open the Edit Artist modal
-	editArtist(artist: Artist): void {
-		console.log('Edit Artist clicked:', artist)
-		this.selectedArtist = { ...artist } // Create a copy to avoid modifying the list directly
-		this.selectedArtistImageFile = null // Reset selected file for edit modal
-		this.isSubmittingEditArtist = false
-		this.editArtistSubmissionError = null
-		this.editArtistSubmissionSuccess = false
-		this.showEditArtistModal = true
-	}
-
-	// Placeholder method for deleting an artist
 	deleteArtist(artist: Artist): void {
 		console.log('Delete Artist clicked:', artist)
 		// TODO: Implement actual delete logic (e.g., show confirmation, call adminService.deleteArtist(artist.id))
 		alert(`Delete artist: ${artist.name} (Not implemented yet)`)
+		// If delete logic is moved to modal/service, this method would call that and then loadArtists()
 	}
 
-	// --- Add New Artist Form Methods ---
-
-	cancelAddArtist(): void {
-		console.log('Cancel Add Artist clicked')
-		this.showAddArtistForm = false // Hide the inline form/modal
-		this.resetNewArtistForm()
-	}
-
-	resetNewArtistForm(): void {
-		this.newArtist = {
-			id: '00000000-0000-0000-0000-000000000000',
-			name: '',
-			styles: '',
-			bio: '',
-			instagramHandle: '',
-			bookingUrl: '',
-			featured: false,
-			image: '',
-		}
-		this.newArtistImageFile = null
-		this.isSubmittingArtist = false
-		this.artistSubmissionError = null
-		this.artistSubmissionSuccess = false
-	}
-
-	onFileSelectedForArtist(event: any): void {
-		const files: FileList | null = event.target.files
-		if (files && files.length > 0) {
-			this.newArtistImageFile = files[0]
-			console.log('Selected artist image file:', this.newArtistImageFile)
-		} else {
-			this.newArtistImageFile = null
-			console.log('No artist image file selected.')
-		}
-	}
-
-	onSubmitNewArtist(): void {
-		this.isSubmittingArtist = true
-		this.artistSubmissionError = null
-		this.artistSubmissionSuccess = false
-
-		const formData = new FormData()
-
-		// Append artist data
-		formData.append('name', this.newArtist.name)
-		formData.append('styles', this.newArtist.styles)
-		formData.append('bio', this.newArtist.bio)
-		// Append optional fields only if they have values
-		if (this.newArtist.instagramHandle) {
-			formData.append('instagramHandle', this.newArtist.instagramHandle)
-		}
-		if (this.newArtist.bookingUrl) {
-			formData.append('bookingUrl', this.newArtist.bookingUrl)
-		}
-		formData.append('featured', this.newArtist.featured.toString())
-
-		// Append the image file if selected
-		if (this.newArtistImageFile) {
-			formData.append(
-				'imageFile',
-				this.newArtistImageFile,
-				this.newArtistImageFile.name
-			)
-		}
-
-		this.adminService.createArtist(formData).subscribe({
-			next: (response) => {
-				console.log('Artist submitted successfully', response)
-				this.artistSubmissionSuccess = true
-				this.isSubmittingArtist = false
-				this.loadArtists() // Reload artists after successful submission
-				this.cancelAddArtist() // Close the modal on success
-			},
-			error: (err) => {
-				console.error('Error submitting artist:', err)
-				this.artistSubmissionError = 'Failed to add artist. Please try again.' // Set a user-friendly error message
-				this.isSubmittingArtist = false
-			},
-		})
-	}
-
-	// --- Edit Artist Form Methods ---
-
-	// Method to close the Edit Artist modal
-	closeEditArtistModal(): void {
-		console.log('Close Edit Artist modal clicked')
-		this.showEditArtistModal = false
-		this.selectedArtist = null // Clear selected artist on close
-		this.selectedArtistImageFile = null // Clear selected file
-	}
-
-	onFileSelectedForEditArtist(event: any): void {
-		const files: FileList | null = event.target.files
-		if (files && files.length > 0) {
-			this.selectedArtistImageFile = files[0]
-			console.log('Selected file for edit:', this.selectedArtistImageFile)
-		} else {
-			this.selectedArtistImageFile = null
-			console.log('No file selected for edit.')
-		}
-	}
-
-	onSubmitEditArtist(): void {
-		if (!this.selectedArtist) {
-			console.error('No artist selected for editing.')
-			return
-		}
-
-		this.isSubmittingEditArtist = true
-		this.editArtistSubmissionError = null
-		this.editArtistSubmissionSuccess = false
-
-		const formData = new FormData()
-
-		// Append artist data from the selectedArtist object
-		// Ensure property names match the backend AdminArtistUpdateModel
-		formData.append('name', this.selectedArtist.name)
-		formData.append('styles', this.selectedArtist.styles)
-		formData.append('bio', this.selectedArtist.bio)
-		// Append optional fields only if they have values
-		if (this.selectedArtist.instagramHandle) {
-			formData.append('instagramHandle', this.selectedArtist.instagramHandle)
-		}
-		if (this.selectedArtist.bookingUrl) {
-			formData.append('bookingUrl', this.selectedArtist.bookingUrl)
-		}
-		formData.append('featured', this.selectedArtist.featured.toString())
-
-		// Append the new image file if selected
-		if (this.selectedArtistImageFile) {
-			formData.append(
-				'imageFile',
-				this.selectedArtistImageFile,
-				this.selectedArtistImageFile.name
-			)
-		}
-		// Note: The backend expects the ID in the route, not the form data.
-		// We get the ID from this.selectedArtist.id for the service call.
-
-		// Use the adminService method to update the artist with FormData
-		this.adminService.updateArtist(this.selectedArtist.id, formData).subscribe({
-			next: (response) => {
-				console.log('Artist updated successfully', response)
-				this.editArtistSubmissionSuccess = true
-				this.isSubmittingEditArtist = false
-				this.loadArtists() // Reload artists after successful update
-				// Optionally close the modal after success
-				this.closeEditArtistModal();
-			},
-			error: (err) => {
-				console.error('Error updating artist:', err)
-				this.editArtistSubmissionError =
-					'Failed to update artist. Please try again.' // Set a user-friendly error message
-				this.isSubmittingEditArtist = false
-			},
-		})
-	}
-
-	// --- User Management Methods ---
-
+	// --- Add User Modal (Logic exists, but HTML not provided) ---
+	showAddUserModal = false // Keep this property
 
 	closeAddUserModal(): void {
+		// Keep this method
 		this.showAddUserModal = false
 	}
+
+	// --- Generic Modal Management Methods (Can likely be removed) ---
+	// Remove these if they are not used
+	// openViewConsultationModal(consultation: ConsultationDisplay): void { ... }
+	// openEditArtistModal(artist: Artist): void { ... }
+	// openAddUserModal(): void { ... }
 
 	// --- Generic Modal Management Methods (Can be refactored if more modals are added) ---
 	// These seem redundant with specific close methods, consider removing if not used elsewhere

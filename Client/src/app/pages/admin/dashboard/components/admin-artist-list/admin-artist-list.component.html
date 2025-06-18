@@ -1,0 +1,44 @@
+<!-- admin-artist-list.component.html -->
+
+<!-- Artist Cards -->
+<div
+	*ngIf="artists.length > 0"
+	class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+>
+	<div
+		*ngFor="let artist of artists"
+		class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-xl hover:scale-105"
+	>
+		<img
+			[src]="artist.image"
+			[alt]="artist.name"
+			class="w-full h-48 object-cover"
+		/>
+		<div class="p-5">
+			<h3 class="text-xl font-bold text-gray-900 mb-2">{{ artist.name }}</h3>
+			<p class="text-gray-600 text-sm mb-3">{{ artist.styles }}</p>
+			<p class="text-gray-700 text-sm line-clamp-3 mb-4">{{ artist.bio }}</p>
+			<div class="flex justify-end space-x-3">
+				<button
+					class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm py-1 px-3 rounded transition duration-300"
+					(click)="onEditClick(artist)"
+				>
+					Edit
+				</button>
+				<button
+					class="bg-red-500 hover:bg-red-600 text-white text-sm py-1 px-3 rounded transition duration-300"
+					(click)="deleteArtist(artist)"
+				>
+					Delete
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div
+	*ngIf="artists.length === 0"
+	class="bg-white rounded-lg shadow-md p-8 text-center text-gray-600"
+>
+	No artists found.
+</div>

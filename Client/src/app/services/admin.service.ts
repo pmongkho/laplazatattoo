@@ -61,6 +61,7 @@ export class AdminService {
 				errorMessage =
 					'Authentication or authorization failed. Please log in again.'
 				// TODO: Redirect to login page or handle unauthorized access
+				this.authService.logout() // <-- Uncomment or add this line
 			}
 		}
 		console.error(errorMessage)

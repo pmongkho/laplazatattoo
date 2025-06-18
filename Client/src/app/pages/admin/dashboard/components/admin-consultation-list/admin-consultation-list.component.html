@@ -1,0 +1,119 @@
+<!-- admin-consultation-list.component.html -->
+
+<!-- Loading State -->
+<div
+	*ngIf="isLoading"
+	class="bg-white rounded-lg shadow-md p-8 text-center text-gray-600"
+>
+	Loading consultations...
+</div>
+
+<!-- Error State -->
+<div
+	*ngIf="error && !isLoading"
+	class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+	role="alert"
+>
+	<strong class="font-bold">Error:</strong>
+	<span class="block sm:inline"> Failed to load consultations.</span>
+</div>
+
+<!-- Consultation Cards -->
+<div
+	*ngIf="!isLoading && !error && consultations.length > 0"
+	class="grid grid-cols-1 md:grid-cols-2 gap-6"
+>
+	<div
+		*ngFor="let consultation of consultations"
+		class="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-cyan-600 transform transition duration-300 hover:shadow-xl flex flex-col"
+	>
+		<!-- Image(s) Area -->
+		<div *ngIf="consultation.referenceImages && consultation.referenceImages.length > 0" class="w-full">
+            <!-- Display the first image prominently -->
+            <div class="w-full  md:h-80 overflow-hidden bg-gray-200 flex items-center justify-center">
+                <img
+                    [src]="consultation.referenceImages[0]"
+                    alt="Reference Image"
+                    class="object-cover w-full h-full"
+                />
+            </div>
+            <!-- Display thumbnails or links for additional images -->
+            <div *ngIf="consultation.referenceImages.length > 1" class="flex flex-wrap gap-2 p-4 border-b border-gray-200">
+                <p class="font-semibold text-gray-700 w-full mb-1">Additional Images:</p>
+                <a
+                    *ngFor="let imageUrl of consultation.referenceImages.slice(1)"
+                    [href]="imageUrl"
+                    target="_blank"
+                    class="block w-12 h-12 rounded overflow-hidden border border-gray-300 hover:border-cyan-600 transition"
+                >
+                    <img
+                        [src]="imageUrl"
+                        alt="Reference Image Thumbnail"
+                        class="w-full h-full object-cover"
+                    />
+                </a>
+            </div>
+		</div>
+        <!-- Placeholder if no images -->
+        <div *ngIf="!consultation.referenceImages || consultation.referenceImages.length === 0" class="w-full h-64 md:h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+            No reference images
+        </div>
+
+		<!-- Header (Client Name and Date) -->
+		<div class="p-4 border-b border-gray-200">
+			<h3 class="text-xl font-bold text-gray-900">{{ consultation.clientName }}</h3>
+			<div class="text-sm text-gray-500 mt-1">
+				Submitted: {{ consultation.createdAt | date : 'short' }}
+			</div>
+			<p *ngIf="consultation.preferredArtist" class="text-gray-700 mt-2">
+				<span class="font-semibold">Preferred Artist:</span>
+				{{ consultation.preferredArtist }}
+			</p>
+		</div>
+
+		<!-- Details Section -->
+		<div class="p-4 flex-grow">
+            <div *ngIf="consultation.description" class="mb-4">
+                <p class="font-semibold text-gray-700">Details:</p>
+                <p class="text-gray-600 text-sm">{{ consultation.description }}</p>
+            </div>
+            <p class="text-gray-700 mb-1">
+                <span class="font-semibold">Email:</span> {{ consultation.email }}
+            </p>
+            <p class="text-gray-700 mb-1">
+                <span class="font-semibold">Style:</span> {{ consultation.style }}
+            </p>
+            <p class="text-gray-700 mb-1">
+                <span class="font-semibold">Placement:</span>
+                {{ consultation.placement }}
+            </p>
+            <p class="text-gray-700 mb-1">
+                <span class="font-semibold">Size:</span> {{ consultation.size }}
+            </p>
+		</div>
+
+		<!-- Action Buttons -->
+		<div class="mt-auto p-4 border-t border-gray-200 flex justify-end space-x-3">
+			<button
+				class="bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded transition duration-300"
+				(click)="onViewDetailsClick(consultation)"
+			>
+				View Details
+			</button>
+			<button
+				class="bg-red-500 hover:bg-red-600 text-white text-sm py-1 px-3 rounded transition duration-300"
+				(click)="onArchiveConsultationClick(consultation)"
+			>
+				Archive
+			</button>
+		</div>
+	</div>
+</div>
+
+<!-- No Consultations State -->
+<div
+	*ngIf="!isLoading && !error && consultations.length === 0"
+	class="bg-white rounded-lg shadow-md p-8 text-center text-gray-600"
+>
+	No consultations found.
+</div>
