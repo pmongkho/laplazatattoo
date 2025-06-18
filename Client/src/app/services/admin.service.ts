@@ -8,8 +8,8 @@ import { Observable, throwError } from 'rxjs'
 import { catchError } from 'rxjs/operators'
 import { Artist } from '../models/artist.model' // Assuming Artist model exists here
 import { environment } from '../../environments/environment' // Assuming environment file exists
-import {AuthService} from './auth.service'
-import {Router} from '@angular/router'
+import { AuthService } from './auth.service'
+import { Router } from '@angular/router'
 
 @Injectable({
 	providedIn: 'root',
@@ -17,7 +17,11 @@ import {Router} from '@angular/router'
 export class AdminService {
 	private apiUrl = `${environment.apiUrl}/admin/artists` // Base URL for artist endpoints
 
-	constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
+	constructor(
+		private http: HttpClient,
+		private authService: AuthService,
+		private router: Router
+	) {}
 
 	// Helper method to get the auth token (replace with your actual auth service logic)
 	private getAuthToken(): string | null {
@@ -77,8 +81,7 @@ export class AdminService {
 		// HttpClient automatically sets Content-Type to multipart/form-data with FormData
 		return this.http
 			.post<Artist>(this.apiUrl, formData, this.getHttpOptionsFormData())
-			.pipe(catchError(this.handleError))
-
+			.pipe(catchError((error) => this.handleError(error)))
 	}
 
 	/**
@@ -99,7 +102,7 @@ export class AdminService {
 		// Send FormData for updates that might include a file
 		return this.http
 			.put<Artist>(url, formData, { headers: headers }) // Pass headers directly
-			.pipe(catchError(this.handleError))
+			.pipe(catchError((error) => this.handleError(error)))
 	}
 
 	/**
@@ -110,6 +113,6 @@ export class AdminService {
 		const url = `${this.apiUrl}/${id}`
 		return this.http
 			.delete<void>(url, this.getHttpOptions())
-			.pipe(catchError(this.handleError))
+			.pipe(catchError((error) => this.handleError(error)))
 	}
 }

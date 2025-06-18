@@ -177,10 +177,22 @@ export class DashboardComponent implements OnInit {
 	}
 
 	deleteArtist(artist: Artist): void {
-		console.log('Delete Artist clicked:', artist)
-		// TODO: Implement actual delete logic (e.g., show confirmation, call adminService.deleteArtist(artist.id))
-		alert(`Delete artist: ${artist.name} (Not implemented yet)`)
-		// If delete logic is moved to modal/service, this method would call that and then loadArtists()
+		// 1. Confirm (optional)
+		if (!confirm(`Are you sure you want to delete ${artist.name}?`)) return
+
+		// 2. Call the service and subscribe
+		this.adminService.deleteArtist(artist.id).subscribe({
+			next: () => {
+				console.log('Deleted artist:', artist)
+				// 3. Remove from local array or reload artists
+				this.artists = this.artists.filter((a) => a.id !== artist.id)
+				// Or: this.loadArtists();
+			},
+			error: (err) => {
+				console.error('Delete failed', err)
+				alert('Delete failed: ' + (err?.message || err))
+			},
+		})
 	}
 
 	// --- Add User Modal (Logic exists, but HTML not provided) ---
