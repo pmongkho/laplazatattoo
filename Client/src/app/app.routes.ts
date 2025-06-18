@@ -39,4 +39,5 @@ export const routes: Routes = [
 		path: 'admin/login',
 		component: AdminLoginComponent,
 	},
+	{ path: '**', redirectTo: '', pathMatch: 'full' },
 ]
