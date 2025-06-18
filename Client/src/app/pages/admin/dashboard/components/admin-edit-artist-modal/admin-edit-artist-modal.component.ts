@@ -9,7 +9,6 @@ import {FormsModule} from '@angular/forms'
 	standalone: true,
 	imports: [CommonModule, FormsModule], // Add imports if needed
 	templateUrl: './admin-edit-artist-modal.component.html',
-	styleUrl: './admin-edit-artist-modal.component.css',
 })
 export class AdminEditArtistModalComponent {
 	// --- Modal Visibility Properties ---

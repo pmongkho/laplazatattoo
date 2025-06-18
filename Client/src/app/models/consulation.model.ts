@@ -20,4 +20,5 @@ export interface ConsultationDisplay {
 	description: string
 	referenceImages: string[]
 	createdAt: string
+	selectedImageUrl?: string
 }

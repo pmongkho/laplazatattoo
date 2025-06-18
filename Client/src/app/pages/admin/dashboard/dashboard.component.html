@@ -41,7 +41,7 @@
 				<div class="flex justify-end mb-6">
 					<button
 						class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 shadow-md"
-						(click)="this.adminService.addNewArtist()"
+						(click)="addNewArtist()"
 					>
 						Add New Artist
 					</button>
@@ -121,7 +121,7 @@
     [showModal]="showViewConsultationModal"
     [consultation]="selectedConsultation"
     (closeModal)="onViewConsultationModalClosed()"
-    (archiveConsultationClicked)="archiveConsultation($event)" // Keep this binding if archive is still handled by dashboard
+    (archiveConsultationClicked)="archiveConsultation($event)"
 ></app-admin-view-consultation-modal>
 
 <!-- Edit Artist Modal Component -->
