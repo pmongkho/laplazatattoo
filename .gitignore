@@ -10,7 +10,7 @@
 node_modules/
 packages/
 
-API/appsettings.json
+appsettings.json
 
 # Ignore editor/IDE specific files
 .vscode/
